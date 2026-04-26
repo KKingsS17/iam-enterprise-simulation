@@ -4,6 +4,16 @@
 Enterprise IAM simulation covering lifecycle automation, access governance, RBAC and ABAC models and Zero Trust principles.
 <br />
 
+## Project Structure
+
+iam-enterprise-simulation/
+
+- architecture/
+- lifecycle-automation/
+- access-governance/
+- access-control-models/
+- automation-api/
+- security-zero-trust/
 
 <h2>Languages and Utilities Used</h2>
 
