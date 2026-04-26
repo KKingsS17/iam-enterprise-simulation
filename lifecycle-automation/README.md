@@ -1,20 +1,15 @@
 <h1>Lifecycle Automation</h1>
 
-<h2>Description</h2>
-Empty
+<h2>Overview</h2>
+This module simulates automated Joiner, Mover, Leaver (JML) processes using PowerShell and Microsoft Entra ID.
 <br />
 
-<h2>Architecture</h2>
+<h2>Features</h2>
 
-- <b>architecture/</b>
-
-<h2>Modules</h2>
-
-- <b>lifecycle-automation/</b>
-- <b>access-governance/</b>
-- <b>access-control-models/</b>
-- <b>automation-api/</b>
-- <b>security-zero-trust/</b>
+- Automated user provisioning
+- Role-based group assignment
+- Structured logging
+- Error handling and reporting
 
 <h2>Technologies</h2>
 
@@ -22,11 +17,11 @@ Empty
 - <b>PowerShell</b> 
 - <b>Microsoft Graph API</b>
 
-<h2>Goals</h2>
+<h2>Components</h2>
 
-- Demonstrate enterprise IAM capabilities.
-- Showcase automation and governance design.
-- Provide audit-ready identity processes.
+- Joiner process
+- Mover process
+- Leaver process
 
 <h2>Program walk-through:</h2>
 
