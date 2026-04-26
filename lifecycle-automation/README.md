@@ -146,7 +146,8 @@ Log characteristics:
 <h2>Summary</h2>
 
 This module demonstrates how identity lifecycle processes can be automated in a structured, auditable, and scalable way, aligning with enterprise IAM best practices.
-
+<br />
+<br />
 <!--
  ```diff
 - text in red
