@@ -34,7 +34,7 @@ Detailed diagrams and design decisions are available in the [architecture](https
 High-level IAM design, including system components, identity flows, and trust boundaries.
 <br />
 <br />
-<h3>Lifecycle Automation</h3>
+<h3>Lifecycle Automation (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/lifecycle-automation">Module details</a>)</h3>
 
 Implements Joiner, Mover, and Leaver (JML) processes using PowerShell.
 
@@ -45,7 +45,7 @@ Features:
 - Structured logging and reporting
 - Error handling and traceability
 <br />
-<h3>Access Governance</h3>
+<h3>Access Governance (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/access-governance">Module details</a>)</h3>
 
 Focuses on visibility and control of access.
 
@@ -55,7 +55,7 @@ Includes:
 - Audit logging
 - Governance policies aligned with least privilege
 <br />
-<h3>Access Control Models</h3>
+<h3>Access Control Models (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/access-control-models">Module details</a>)</h3>
 
 Defines how access is structured across the environment.
 
@@ -65,7 +65,7 @@ Includes:
 - Group design strategy
 - Naming conventions and scope control
 <br />
-<h3>Automation API</h3>
+<h3>Automation API (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/automation-api">Module details</a>)</h3>
 
 Integration with Microsoft Graph API to extend automation capabilities.
 
@@ -74,7 +74,7 @@ Includes:
 - Programmatic identity management
 - API-based provisioning and updates
 <br />
-<h3>Security – Zero Trust</h3>
+<h3>Security – Zero Trust (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/security-zero-trust">Module details</a>)</h3>
 
 Applies Zero Trust principles to identity and access.
 
