@@ -106,7 +106,8 @@ The goal of this project is to demonstrate practical, enterprise-level IAM skill
 <h2>Notes</h2>
 
 This is a simulation project intended for learning and demonstration purposes, but it is designed following real enterprise IAM practices.
-
+<br />
+<br />
 <!--
  ```diff
 - text in red
