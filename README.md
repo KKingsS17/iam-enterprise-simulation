@@ -24,7 +24,7 @@ Key components include:
 - Governance layer (access reviews, audit logs)
 - Security layer (MFA, SSO, Conditional Access, Zero Trust)
 
-Detailed diagrams and design decisions are available in the [/architecture](https://github.com/KKingsS17/iam-enterprise-simulation/blob/main/architecture/README.md) folder.
+Detailed diagrams and design decisions are available in the [architecture](https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/architecture) folder.
 <br />
 <br />
 <h2>Modules</h2>
