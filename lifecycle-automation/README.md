@@ -1,3 +1,47 @@
-# Lifecycle Automation
+<h1>Lifecycle Automation</h1>
 
-This folder contains IAM architecture diagrams and design decisions.
+<h2>Description</h2>
+Empty
+<br />
+
+<h2>Architecture</h2>
+
+- <b>architecture/</b>
+
+<h2>Modules</h2>
+
+- <b>lifecycle-automation/</b>
+- <b>access-governance/</b>
+- <b>access-control-models/</b>
+- <b>automation-api/</b>
+- <b>security-zero-trust/</b>
+
+<h2>Technologies</h2>
+
+- <b>Microsoft Entra ID</b>
+- <b>PowerShell</b> 
+- <b>Microsoft Graph API</b>
+
+<h2>Goals</h2>
+
+- Demonstrate enterprise IAM capabilities.
+- Showcase automation and governance design.
+- Provide audit-ready identity processes.
+
+<h2>Program walk-through:</h2>
+
+Launch the utility: <br/>
+<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+
+
+<!--
+ ```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
+--!>
