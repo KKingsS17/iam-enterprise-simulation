@@ -1,59 +1,40 @@
 <h1>IAM Enterprise Simulation</h1>
 
 <h2>Description</h2>
-Enterprise IAM simulation covering lifecycle automation, access governance, RBAC and ABAC models and Zero Trust principles.
+This project simulates a real-world Identity and Access Management (IAM) environment, including lifecycle automation, access governance, RBAC/ABAC models, and Zero Trust architecture.
 <br />
 
-## Project Structure
+<h2>Architecture</h2>
 
-iam-enterprise-simulation/
+- <b>architecture/</b>
 
-- architecture/
-- lifecycle-automation/
-- access-governance/
-- access-control-models/
-- automation-api/
-- security-zero-trust/
+<h2>Modules</h2>
 
-<h2>Languages and Utilities Used</h2>
+- <b>lifecycle-automation/</b>
+- <b>access-governance/</b>
+- <b>access-control-models/</b>
+- <b>automation-api/</b>
+- <b>security-zero-trust/</b>
 
+<h2>Technologies</h2>
+
+- <b>Microsoft Entra ID</b>
 - <b>PowerShell</b> 
-- <b>Diskpart</b>
+- <b>Microsoft Graph API</b>
 
-<h2>Environments Used </h2>
+<h2>Goals</h2>
 
-- <b>Windows 10</b> (21H2)
+- Demonstrate enterprise IAM capabilities.
+- Showcase automation and governance design.
+- Provide audit-ready identity processes.
 
 <h2>Program walk-through:</h2>
 
-<p align="center">
 Launch the utility: <br/>
 <img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
 
 <!--
  ```diff
