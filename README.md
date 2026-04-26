@@ -10,7 +10,7 @@ This project simulates a real-world Identity and Access Management (IAM) environ
 
 <h2>Modules</h2>
 
-- <b>lifecycle-automation/</b>
+- [lifecycle-automation/](https://github.com/KKingsS17/iam-enterprise-simulation/blob/main/lifecycle-automation/README.md)
 - <b>access-governance/</b>
 - <b>access-control-models/</b>
 - <b>automation-api/</b>
