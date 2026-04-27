@@ -88,10 +88,20 @@ When a new user is detected in the HR system, the script:
 - Assigns attributes
 - Adds the user to the correct group
 
-#### In this example, we are adding 6 new users into our HR system:
+#### 1. In this example, we are adding 6 new users into our HR system:
+![Joiner Demo](docs/screenshots/joiner-HR-system.png)
 
+#### 2. After the script execution, we can see the logs showing the users were successfully created and were added to the IAM managed groups they belong:
+![Joiner Demo](docs/screenshots/joiner-logs.png)
 
+#### 3. We can confirm the users in Entra ID:
+![Joiner Demo](docs/screenshots/joiner-entraID.png)
 
+#### 4. We can also confirm the user got assigned to the group that provides the access they need, in this example the Account Executive from Sales Erwin Smith got assigned to the corresponding group:
+![Joiner Demo](docs/screenshots/joiner-group.png)
+
+#### 3. For the Erwin Smith example, we can see the user got assigned to the "HubSpot CRM" app they need to perform their job:
+![Joiner Demo](docs/screenshots/joiner-app-access.png)
 
 ## Business Logic
 
