@@ -77,3 +77,128 @@ I --> H
 H --> J
 H --> K
 ```
+
+## Technologies Used
+
+- PowerShell
+- Microsoft Graph API
+- Azure Entra ID
+- CSV (HR system simulation)
+
+## Business Logic
+
+### Joiner (User Provisioning)
+
+- Creates user in Entra ID using HR data
+- Assigns attributes:
+  
+  - DisplayName
+  - UserPrincipalName
+  - Department
+  - Job Title
+  - Country
+  - Company
+- Adds user to role-based group (based on attributes)
+
+Key challenge:
+- Microsoft Graph eventual consistency → handled with retry logic
+
+### Mover (User Update)
+
+- Detects attribute-level changes:
+
+  - Department
+  - Job Title
+  - Country
+- Updates only changed attributes
+- Updates group membership only if role/department changed
+
+Key feature:
+- Differential updates to avoid unnecessary operations
+
+### Leaver (Deprovisioning)
+
+- Removes user from all groups
+- Revokes active sessions
+- Disables account
+
+Security focus:
+
+- Ensures immediate access removal
+
+## Access Control Model
+
+Access is assigned based on:
+
+Department + Role → Security Group
+
+Example:
+
+- "Human Resources - HR Management"
+- "IT - System Administrator"
+
+This ensures Role-Based Access Control (RBAC).
+
+## Logging & Audit
+
+The system generates structured logs including:
+
+- User creation
+- Attribute changes
+- Group assignments/removals
+- Errors
+
+Example:
+
+- [INFO] Creating user
+- [SUCCESS] User created
+- [ERROR] Failed to add user to group
+
+The purpose is to improve traceability and audit readiness
+
+## Reporting
+
+A CSV report is generated with:
+
+- Name
+- UPN
+- Department
+- Role
+- Groups
+
+This provides a snapshot of user access for auditing purposes.
+
+## Challenges & Solutions
+
+### 1. Unnecessary Updates
+Issue: Users were being updated even without changes  
+Solution: Implemented attribute comparison logic
+
+### 2. Group Reassignment Issues
+Issue: Users were removed and re-added unnecessarily  
+Solution: Added group membership validation
+
+### 3. Data Validation
+Issue: Invalid HR records  
+Solution: Input validation before processing
+
+## How to Run
+
+1. Connect to Microsoft Graph
+2. Prepare CSV file
+3. Run script:
+
+```powershell
+.\lifecycle_automation_v1.ps1
+```
+
+## Project Structure
+
+- script/
+  - lifecycle_automation.ps1
+- data/
+  - employees.csv
+- logs/
+  - lifecycle logs
+  - access_report.csv
+ 
