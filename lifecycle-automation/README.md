@@ -1,159 +1,100 @@
-<h1>Lifecycle Automation</h1>
+<h1>Lifecycle Automation - Module 1</h1>
 
 <h2>Overview</h2>
-This module simulates enterprise-grade Identity Lifecycle Automation, implementing Joiner, Mover, and Leaver (JML) processes using PowerShell and Microsoft Entra ID. The goal is to automate user provisioning, updates, and deprovisioning while ensuring consistency, traceability, and alignment with access control policies.
+This module simulates enterprise-grade Identity Lifecycle Automation, implementing Joiner, Mover, and Leaver (JML) processes using PowerShell, Microsoft Graph API, and Microsoft Entra ID. The goal is to simulate integration with an HR system, automate user provisioning, updates, deprovisioning, and apply role-based access control through dynamic group assignment while ensuring consistency, traceability, and alignment with access control policies.
 <br />
 <br />
 
-<h2>Objectives</h2>
+<h2>Objective</h2>
 
-- Automate identity lifecycle events (Joiner, Mover, Leaver)
-- Enforce role-based access assignment
-- Ensure auditability through structured logging
-- Handle errors gracefully and maintain system integrity
+The goal of this module is to automate user lifecycle management:
+
+- Provision new users (Joiner)
+- Update existing users based on changes (Mover)
+- Deprovision users securely (Leaver)
+
+The system ensures:
+- Consistency between HR data and Entra ID
+- Proper access assignment
+- Auditability through logs and reporting
 <br />
 
-<h2>Scope</h2>
+<h2>Architecture</h2>
 
-This module focuses on identity operations within Microsoft Entra ID, including:
+HR System (CSV) → Validation → Entra ID (Microsoft Graph)
 
-- User creation and updates
-- Group-based access assignment
-- Account disablement and cleanup
-- Logging and reporting of all operations
-<br />
+Processing Flow:
+1. Validate input records
+2. Check if user exists
+3. Execute:
+   - Joiner
+   - Mover
+   - Leaver
+4. Update group memberships
+5. Generate audit report
 
-<h2>Architecture Role</h2>
+<h3>Diagram</h3>
 
-This component acts as the automation layer of the IAM system.
+```mermaid
+flowchart LR
 
-It integrates with:
+    %% =====================
+    %% DATA LAYER
+    %% =====================
+    subgraph Data Layer
+        A[HR System<br/>CSV File]
+    end
 
-- Identity provider (Entra ID)
-- Access control layer (RBAC groups)
-- Governance layer (audit logs and reporting)
-<br />
+    %% =====================
+    %% PROCESSING LAYER
+    %% =====================
+    subgraph Processing Layer
+        B[Validation Engine]
+        C{User Exists?}
+        D[JOINER<br/>Create User]
+        E{Changes Detected?}
+        F[MOVER<br/>Update Attributes]
+        G[LEAVER<br/>Disable User]
+        H[Group Assignment Logic]
+    end
 
-<h2>Processes</h2>
+    %% =====================
+    %% IDENTITY LAYER
+    %% =====================
+    subgraph Identity Layer
+        I[Microsoft Entra ID]
+        J[Security Groups<br/>RBAC Model]
+    end
 
-<h3>Joiner</h3>
+    %% =====================
+    %% OUTPUT / AUDIT LAYER
+    %% =====================
+    subgraph Output & Audit Layer
+        K[Structured Logs]
+        L[Access Report CSV]
+    end
 
-Handles onboarding of new users.
+    %% =====================
+    %% FLOW
+    %% =====================
+    A --> B
+    B --> C
 
-Key actions:
+    C -->|No| D
+    C -->|Yes| E
 
-- Creates user in Entra ID
-- Assigns groups based on role or department
-- Applies initial access configuration
-- Logs all actions
-<br />
+    E -->|No| K
+    E -->|Yes| F
 
-<h3>Mover</h3>
+    C -->|Terminated| G
 
-Handles changes in user attributes (e.g., department, role).
+    D --> H
+    F --> H
+    G --> H
 
-Key actions:
+    H --> J
+    J --> I
 
-- Updates user properties
-- Adjusts group memberships
-- Removes outdated access
-- Ensures least privilege is maintained
-<br />
-
-<h3>Leaver</h3>
-
-Handles offboarding of users.
-
-Key actions:
-
-- Disables account
-- Removes group memberships
-- Prevents further access
-- Logs deprovisioning actions
-<br />
-
-<h2>Features</h2>
-
-- Role-Based Access assignment (RBAC-driven)
-- Structured logging for audit and traceability
-- Error handling and validation
-- Idempotent logic to prevent duplication or inconsistent state
-- Scalable script structure
-<br />
-
-<h2>Technologies</h2>
-
-- <b>Microsoft Entra ID</b>
-- <b>PowerShell</b> 
-- <b>Microsoft Graph API</b>
-<br />
-
-<h2>Script</h2>
-
-Main script:
-
-```powershell
-lifecycle_automation_v1.ps1
+    I --> K
+    I --> L
 ```
-<br />
-
-<h2>Logging and Output</h2>
-
-The system generates logs to provide full visibility into identity operations.
-
-Log characteristics:
-
-- Timestamped entries
-- Action tracking (create, update, disable)
-- Success and error states
-- Execution summary report
-<br />
-
-<h2>Design Considerations</h2>
-
-- Least privilege enforced via group-based access
-- Separation of concerns between identity and access logic
-- Resilience through error handling and validation checks
-- Designed to simulate real enterprise IAM workflows
-<br />
-
-<h2>Example Flow</h2>
-
-1. Input data (e.g., new employee)
-2. Script evaluates current state
-3. Determines required action (Joiner, Mover, Leaver)
-4. Executes changes in Entra ID
-5. Assigns or removes access via groups
-6. Logs all operations for audit purposes
-<br />
-
-<h2>Limitations</h2>
-
-- Simulation environment (no HR system integration)
-- Limited to Entra ID scope
-- Does not include approval workflows
-<br />
-
-<h2>Future Improvements</h2>
-
-- Integration with HR systems (source of truth)
-- API-based event-driven automation
-- Access review integration
-- Notification system (email or Teams)
-- Role mining and dynamic group assignment
-<br />
-
-<h2>Summary</h2>
-
-This module demonstrates how identity lifecycle processes can be automated in a structured, auditable, and scalable way, aligning with enterprise IAM best practices.
-<br />
-<br />
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
