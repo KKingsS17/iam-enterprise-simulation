@@ -94,10 +94,10 @@ When a new user is detected in the HR system, the script:
 #### 2. After the script execution, we can see the logs showing the users were successfully created and were added to the IAM managed groups they belong:
 ![Joiner Demo](docs/screenshots/joiner-logs.png)
 
-#### 3. We can confirm the users in Entra ID:
+#### 3. We can confirm the users were created in Entra ID:
 ![Joiner Demo](docs/screenshots/joiner-entraID.png)
 
-#### 4. The users also got assigned the roles and access to apps they needs depending on their role, for example the Sales Account Executive Erwin Smith got access to the app "HubSpot CRM" because he was added to the corresponding IAM group:
+#### 4. The users also got assigned the roles and access to apps they need depending on their role, for example the Sales Account Executive Erwin Smith got access to the app "HubSpot CRM" because he was added to the corresponding IAM group:
 ![Joiner Demo](docs/screenshots/joiner-access.png)
 
 ### Mover (User Update)
