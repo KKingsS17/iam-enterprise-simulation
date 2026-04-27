@@ -97,11 +97,17 @@ When a new user is detected in the HR system, the script:
 #### 3. We can confirm the users in Entra ID:
 ![Joiner Demo](docs/screenshots/joiner-entraID.png)
 
-#### 4. We can also confirm the user got assigned to the group that provides the access they need, in this example the Account Executive from Sales Erwin Smith got assigned to the corresponding group:
-![Joiner Demo](docs/screenshots/joiner-group.png)
+#### 4. The users also got assigned the roles and access to apps they needs depending on their role, for example the Sales Account Executive Erwin Smith got access to the app "HubSpot CRM" because he was added to the corresponding IAM group:
+![Joiner Demo](docs/screenshots/joiner-access.png)
 
-#### 3. For the Erwin Smith example, we can see the user got assigned to the "HubSpot CRM" app they need to perform their job:
-![Joiner Demo](docs/screenshots/joiner-app-access.png)
+### Mover (User Update)
+
+When user attributes change:
+
+- Only modified attributes are updated
+- Group membership is updated only if required
+
+#### Example Output
 
 ## Business Logic
 
