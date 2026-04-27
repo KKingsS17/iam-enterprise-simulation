@@ -16,21 +16,7 @@ The system ensures:
 - Proper access assignment
 - Auditability through logs and reporting
 
-## Architecture
-
-HR System (CSV) → Validation → Entra ID (Microsoft Graph)
-
-Processing Flow:
-1. Validate input records
-2. Check if user exists
-3. Execute:
-   - Joiner
-   - Mover
-   - Leaver
-4. Update group memberships
-5. Generate audit report
-
-### Architecture Diagram
+## Architecture Diagram
 
 ```mermaid
 flowchart LR
@@ -78,12 +64,34 @@ H --> J
 H --> K
 ```
 
-## Technologies Used
+HR System (CSV) → Validation → Entra ID (Microsoft Graph)
 
-- PowerShell
-- Microsoft Graph API
-- Azure Entra ID
-- CSV (HR system simulation)
+Processing Flow:
+1. Validate input records
+2. Check if user exists
+3. Execute:
+   - Joiner
+   - Mover
+   - Leaver
+4. Update group memberships
+5. Generate audit report
+
+## Demonstration
+
+The following section shows how the lifecycle automation behaves in different scenarios.
+
+### Joiner (User Creation)
+
+When a new user is detected in the HR system, the script:
+
+- Creates the user in Entra ID
+- Assigns attributes
+- Adds the user to the correct group
+
+#### In this example, we are adding 6 new users into our HR system:
+
+
+
 
 ## Business Logic
 
@@ -167,6 +175,13 @@ A CSV report is generated with:
 - Groups
 
 This provides a snapshot of user access for auditing purposes.
+
+## Technologies Used
+
+- PowerShell
+- Microsoft Graph API
+- Azure Entra ID
+- CSV (HR system simulation)
 
 ## Challenges & Solutions
 
