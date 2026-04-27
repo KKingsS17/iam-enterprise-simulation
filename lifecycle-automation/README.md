@@ -1,11 +1,9 @@
-<h1>Lifecycle Automation - Module 1</h1>
+# Lifecycle Automation - Module 1
 
-<h2>Overview</h2>
+## Overview
 This module simulates enterprise-grade Identity Lifecycle Automation, implementing Joiner, Mover, and Leaver (JML) processes using PowerShell, Microsoft Graph API, and Microsoft Entra ID. The goal is to simulate integration with an HR system, automate user provisioning, updates, deprovisioning, and apply role-based access control through dynamic group assignment while ensuring consistency, traceability, and alignment with access control policies.
-<br />
-<br />
 
-<h2>Objective</h2>
+## Objective
 
 The goal of this module is to automate user lifecycle management:
 
@@ -17,9 +15,8 @@ The system ensures:
 - Consistency between HR data and Entra ID
 - Proper access assignment
 - Auditability through logs and reporting
-<br />
 
-<h2>Architecture</h2>
+## Architecture
 
 HR System (CSV) → Validation → Entra ID (Microsoft Graph)
 
@@ -33,68 +30,50 @@ Processing Flow:
 4. Update group memberships
 5. Generate audit report
 
-<h3>Diagram</h3>
+### Architecture Diagram
 
 ```mermaid
 flowchart LR
 
-    %% =====================
-    %% DATA LAYER
-    %% =====================
-    subgraph Data Layer
-        A[HR System<br/>CSV File]
-    end
+subgraph Data_Layer
+    A[HR System - CSV]
+end
 
-    %% =====================
-    %% PROCESSING LAYER
-    %% =====================
-    subgraph Processing Layer
-        B[Validation Engine]
-        C{User Exists?}
-        D[JOINER<br/>Create User]
-        E{Changes Detected?}
-        F[MOVER<br/>Update Attributes]
-        G[LEAVER<br/>Disable User]
-        H[Group Assignment Logic]
-    end
+subgraph Processing_Layer
+    B[Validation]
+    C{User Exists?}
+    D[JOINER]
+    E{Changes?}
+    F[MOVER]
+    G[LEAVER]
+end
 
-    %% =====================
-    %% IDENTITY LAYER
-    %% =====================
-    subgraph Identity Layer
-        I[Microsoft Entra ID]
-        J[Security Groups<br/>RBAC Model]
-    end
+subgraph Identity_Layer
+    H[Entra ID]
+    I[Groups]
+end
 
-    %% =====================
-    %% OUTPUT / AUDIT LAYER
-    %% =====================
-    subgraph Output & Audit Layer
-        K[Structured Logs]
-        L[Access Report CSV]
-    end
+subgraph Output_Layer
+    J[Logs]
+    K[Report]
+end
 
-    %% =====================
-    %% FLOW
-    %% =====================
-    A --> B
-    B --> C
+A --> B
+B --> C
 
-    C -->|No| D
-    C -->|Yes| E
+C -->|No| D
+C -->|Yes| E
 
-    E -->|No| K
-    E -->|Yes| F
+E -->|No| J
+E -->|Yes| F
 
-    C -->|Terminated| G
+C -->|Terminated| G
 
-    D --> H
-    F --> H
-    G --> H
+D --> I
+F --> I
+G --> I
 
-    H --> J
-    J --> I
-
-    I --> K
-    I --> L
+I --> H
+H --> J
+H --> K
 ```
