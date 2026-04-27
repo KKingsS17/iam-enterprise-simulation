@@ -95,7 +95,7 @@ When a new user is detected in the HR system, the script:
 ![Joiner Demo](docs/screenshots/joiner-logs.png)
 
 #### 3. We can confirm the users in Entra ID:
-
+![Joiner Demo](docs/screenshots/joiner-entraID.png)
 
 #### 4. We can also confirm the user got assigned to the group that provides the access they need, in this example the Account Executive from Sales Erwin Smith got assigned to the corresponding group:
 ![Joiner Demo](docs/screenshots/joiner-group.png)
