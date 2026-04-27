@@ -13,19 +13,30 @@ All access must be assigned through IAM-managed groups. Direct user access is no
 
 IAM-managed groups follow this format:
 
-"[Department]-[Role]"
+"IAM - [Department] - [Role]"
 
 <h2>Role-Based Access Rules</h2>
 
 Finance Department
-- Analyst → Access to financial reporting systems (read-only)
-- Manager → Access to financial systems (read/write)
+- Accounting Staff → Access to financial reporting systems (read-only)
+- Accounting Manager → Access to financial systems (read/write)
 
 IT Department
-- Admin → Full administrative access to infrastructure systems
+- System Admin → Full administrative access to infrastructure systems
+- Cybersecurity Analyst → Security level access to infrastructure systems
+- IT Support → Regulated access to infrastructure systems to be able to support the employees in the company
 
 Sales Department
 - Manager → Access to CRM and reporting tools
+
+Human Resources Department
+- HR Management → Access to the HCM systems (read/write)
+- Recruiters → Access to the HCM systems (read-only)
+
+Software Development
+- Product Manager → Full administrative access to the IDEs and regulated admin access to infrastructure systems
+- Software Architect → Full administrative access to the IDEs and read-only access to infrastructure systems
+- Software Developers  → Regulated access to the IDEs and read-only access to infrastructure systems
 
 <h2>Joiner / Mover / Leaver Rules</h2>
 
