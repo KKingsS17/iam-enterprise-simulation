@@ -1,0 +1,11 @@
+2026-04-28 11:03:57 [INFO] - Starting lifecycle processing...
+2026-04-28 11:03:58 [INFO] - No attribute changes for juan.perez@kkingss.com
+2026-04-28 11:03:59 [INFO] - No attribute changes for sasha.braun@kkingss.com
+2026-04-28 11:03:59 [INFO] - No attribute changes for satoru.gojo@kkingss.com
+2026-04-28 11:04:00 [INFO] - No attribute changes for sugutu.geto@kkingss.com
+2026-04-28 11:04:01 [INFO] - No attribute changes for allan.diaz@kkingss.com
+2026-04-28 11:04:02 [INFO] - Disabling user erwin.smith@kkingss.com
+2026-04-28 11:04:03 [SUCCESS] - User erwin.smith@kkingss.com was successfully disabled
+2026-04-28 11:04:03 [ERROR] - Invalid record [Eren Yeager]: Missing/invalid fields -> department
+2026-04-28 11:04:03 [ERROR] - Raw: {"name":"Eren Yeager","email":"eren.yeager@kkingss.com","department":"","role":"Software Architect","country":"US","status":"active"}
+2026-04-28 11:04:03 [INFO] - Process completed

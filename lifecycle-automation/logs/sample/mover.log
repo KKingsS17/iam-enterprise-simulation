@@ -1,0 +1,13 @@
+2026-04-28 10:06:08 [INFO] - Starting lifecycle processing...
+2026-04-28 10:06:09 [INFO] - No attribute changes for juan.perez@kkingss.com
+2026-04-28 10:06:09 [INFO] - No attribute changes for sasha.braun@kkingss.com
+2026-04-28 10:06:10 [INFO] - No attribute changes for satoru.gojo@kkingss.com
+2026-04-28 10:06:11 [INFO] - No attribute changes for sugutu.geto@kkingss.com
+2026-04-28 10:06:12 [SUCCESS] - Updated property 'Country' for allan.diaz@kkingss.com: CR -> US
+2026-04-28 10:06:12 [INFO] - No group changes needed for allan.diaz@kkingss.com
+2026-04-28 10:06:13 [SUCCESS] - Updated property 'Department' for erwin.smith@kkingss.com: Sales -> IT
+2026-04-28 10:06:13 [SUCCESS] - Updated property 'JobTitle' for erwin.smith@kkingss.com: Account Executive -> Cybersecurity Analyst
+2026-04-28 10:06:13 [INFO] - Group update require for erwin.smith@kkingss.com
+2026-04-28 10:06:14 [SUCCESS] - Removed erwin.smith@kkingss.com from group 'IAM - Sales - Account Executive'
+2026-04-28 10:06:14 [SUCCESS] - Added erwin.smith@kkingss.com to group 'IAM - IT - Cybersecurity Analyst'
+2026-04-28 10:06:15 [INFO] - Process completed

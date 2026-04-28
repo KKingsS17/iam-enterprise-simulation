@@ -1,1 +1,26 @@
-
+2026-04-27 16:09:46 [INFO] - Starting lifecycle processing...
+2026-04-27 16:09:47 [INFO] - Creating user juan.perez@kkingss.com
+2026-04-27 16:09:47 [SUCCESS] - User juan.perez@kkingss.com successfully created
+2026-04-27 16:09:47 [INFO] - Adding juan.perez@kkingss.com to group 'IAM - Human Resources - HR Management'
+2026-04-27 16:09:47 [SUCCESS] - Added juan.perez@kkingss.com to group 'IAM - Human Resources - HR Management'
+2026-04-27 16:09:48 [INFO] - Creating user sasha.braun@kkingss.com
+2026-04-27 16:09:48 [SUCCESS] - User sasha.braun@kkingss.com successfully created
+2026-04-27 16:09:49 [INFO] - Adding sasha.braun@kkingss.com to group 'IAM - Finance - Accounting Manager'
+2026-04-27 16:09:49 [SUCCESS] - Added sasha.braun@kkingss.com to group 'IAM - Finance - Accounting Manager'
+2026-04-27 16:09:50 [INFO] - Creating user satoru.gojo@kkingss.com
+2026-04-27 16:09:50 [SUCCESS] - User satoru.gojo@kkingss.com successfully created
+2026-04-27 16:09:50 [INFO] - Adding satoru.gojo@kkingss.com to group 'IAM - IT - System Administrator'
+2026-04-27 16:09:50 [SUCCESS] - Added satoru.gojo@kkingss.com to group 'IAM - IT - System Administrator'
+2026-04-27 16:09:51 [INFO] - Creating user sugutu.geto@kkingss.com
+2026-04-27 16:09:51 [SUCCESS] - User sugutu.geto@kkingss.com successfully created
+2026-04-27 16:09:52 [INFO] - Adding sugutu.geto@kkingss.com to group 'IAM - IT - Cybersecurity Analyst'
+2026-04-27 16:09:52 [SUCCESS] - Added sugutu.geto@kkingss.com to group 'IAM - IT - Cybersecurity Analyst'
+2026-04-27 16:09:53 [INFO] - Creating user allan.diaz@kkingss.com
+2026-04-27 16:09:53 [SUCCESS] - User allan.diaz@kkingss.com successfully created
+2026-04-27 16:09:53 [INFO] - Adding allan.diaz@kkingss.com to group 'IAM - Software Development - Product Manager'
+2026-04-27 16:09:54 [SUCCESS] - Added allan.diaz@kkingss.com to group 'IAM - Software Development - Product Manager'
+2026-04-27 16:09:54 [INFO] - Creating user erwin.smith@kkingss.com
+2026-04-27 16:09:54 [SUCCESS] - User erwin.smith@kkingss.com successfully created
+2026-04-27 16:09:55 [INFO] - Adding erwin.smith@kkingss.com to group 'IAM - Sales - Account Executive'
+2026-04-27 16:09:55 [SUCCESS] - Added erwin.smith@kkingss.com to group 'IAM - Sales - Account Executive'
+2026-04-27 16:09:55 [INFO] - Process completed

@@ -1,0 +1,10 @@
+2026-04-28 10:37:34 [INFO] - Starting lifecycle processing...
+2026-04-28 10:37:36 [INFO] - No attribute changes for juan.perez@kkingss.com
+2026-04-28 10:37:37 [INFO] - No attribute changes for sasha.braun@kkingss.com
+2026-04-28 10:37:38 [INFO] - No attribute changes for satoru.gojo@kkingss.com
+2026-04-28 10:37:38 [INFO] - No attribute changes for sugutu.geto@kkingss.com
+2026-04-28 10:37:39 [INFO] - No attribute changes for allan.diaz@kkingss.com
+2026-04-28 10:37:40 [INFO] - Disabling user erwin.smith@kkingss.com
+2026-04-28 10:37:41 [SUCCESS] - Removed erwin.smith@kkingss.com from group 'IAM - IT - Cybersecurity Analyst'
+2026-04-28 10:37:41 [SUCCESS] - User erwin.smith@kkingss.com was successfully disabled
+2026-04-28 10:37:42 [INFO] - Process completed
