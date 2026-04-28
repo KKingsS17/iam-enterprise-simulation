@@ -34,7 +34,7 @@ Example:
 
 - System Admin → Privileged administrative access to infrastructure systems
 - Cybersecurity Analyst → Security monitoring and investigation access
-- IT Support → Limited administrative access required for user support
+- Service Desk Technician → Limited administrative access required for user support
 
 ### Sales Department
 
