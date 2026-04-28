@@ -4,7 +4,8 @@
 $csvPath = "C:\Users\kenda\Documents\IAM-Project\employees.csv"
 $logDir = "C:\Users\kenda\Documents\IAM-Project\logs"
 $logFile = "$logDir\lifecycle_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
-$reportPath = "$logDir\access_report.csv"
+$globalLogFile = "$logDir\lifecycle_global.log"
+$reportPath = "$logDir\access_report_$(Get-Date -Format 'yyyyMMdd_HHmmss').csv"
 $defaultPassword = "JujutsuKaisen17."
 
 # ===============================================
@@ -26,6 +27,7 @@ function Write-Log {
     $line = "$timestamp [$level] - $message"
     Write-Host $line
     Add-Content -Path $logFile -Value $line
+    Add-Content -Path $globalLogFile -Value $line
 }
 
 # ===============================================
@@ -56,7 +58,7 @@ function Get-UserByUPN {
 
     $user = Get-MgUser `
         -Filter "userPrincipalName eq '$upn'" `
-        -Property "id,displayName,userPrincipalName,department,jobTitle,country" `
+        -Property "id,displayName,userPrincipalName,department,jobTitle,country,accountEnabled" `
         -ConsistencyLevel eventual
 
     return $user | Select-Object -First 1
@@ -208,31 +210,32 @@ foreach ($emp in $employees) {
         }
         if ($changes.Count -eq 0) {
             Write-Log "No attribute changes for $($user.userPrincipalName)"
-            continue
         }
-        foreach ($key in $changes.Keys) {
-            Write-Log "Updated property '$key' for $($user.userPrincipalName): $($changes[$key])" "SUCCESS"
-        }
-
-        $params = @{}
-
-        if ($changes.ContainsKey("Department")) { $params["Department"] = $emp.department }
-        if ($changes.ContainsKey("JobTitle")) { $params["JobTitle"] = $emp.role }
-        if ($changes.ContainsKey("Country")) { $params["Country"] = $emp.country }
-
-        Update-MgUser -UserId $user.Id @params
-
-        $group = Get-Group $groupName
-        if ($group) {
-
-            if (Is-UserInGroup $user.Id $groupName $userGroups) {
-                Write-Log "No group changes needed for $($user.userPrincipalName)"
+        else{
+            foreach ($key in $changes.Keys) {
+                Write-Log "Updated property '$key' for $($user.userPrincipalName): $($changes[$key])" "SUCCESS"
             }
-            else {
-                Write-Log "Group update require for $($user.userPrincipalName)"
 
-                Update-UserGroups $user.Id $user $userGroups
-                Add-UserToGroup $user.Id $group.Id $user $group
+            $params = @{}
+
+            if ($changes.ContainsKey("Department")) { $params["Department"] = $emp.department }
+            if ($changes.ContainsKey("JobTitle")) { $params["JobTitle"] = $emp.role }
+            if ($changes.ContainsKey("Country")) { $params["Country"] = $emp.country }
+
+            Update-MgUser -UserId $user.Id @params
+
+            $group = Get-Group $groupName
+            if ($group) {
+
+                if (Is-UserInGroup $user.Id $groupName $userGroups) {
+                    Write-Log "No group changes needed for $($user.userPrincipalName)"
+                }
+                else {
+                    Write-Log "Group update require for $($user.userPrincipalName)"
+
+                    Update-UserGroups $user.Id $user $userGroups
+                    Add-UserToGroup $user.Id $group.Id $user $group
+                }
             }
         }
     }
@@ -252,15 +255,20 @@ foreach ($emp in $employees) {
     # ==================REPORT===================
     if ($user) {
 
+        $freshUser = Get-MgUser -UserId $user.Id `
+        -Property "displayName,userPrincipalName,department,jobTitle,accountEnabled,country"
+
         $userGroups = Get-MgUserMemberOf -UserId $user.Id -All
         
         $groupNames = $userGroups | ForEach-Object { $_.AdditionalProperties.displayName }
 
         $report += [PSCustomObject]@{
-            Name = $user.displayName
-            Email = $user.userPrincipalName
-            Department = if ($user.Department) { $user.Department } else { $emp.department }
-            Role = $user.jobTitle
+            Name = $freshUser.displayName
+            Email = $freshUser.userPrincipalName
+            Department = if ($freshUser.Department) { $freshUser.Department } else { $emp.department }
+            Role = $freshUser.jobTitle
+            Country = $freshUser.country
+            Status = if ($freshUser.accountEnabled) { "Enabled" } else { "Disabled" }
             Groups = ($groupNames -join ", ")
         }
     }
