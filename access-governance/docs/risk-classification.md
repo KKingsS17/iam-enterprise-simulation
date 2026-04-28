@@ -1,43 +1,49 @@
-<h1>Access Risk Classification</h1>
+# Access Risk Classification
 
-<h2>Purpose</h2>
-This document classifies access levels based on risk to support governance and audit processes.
-<br />
+## Purpose
+This document defines access risk levels based on privilege, data sensitivity, and potential business impact. It supports governance, audit, and access review processes.
 
-<h2>Risk Levels</h2>
+# Risk Classification Criteria
 
-High Risk
-- IAM-IT-Admin
-- Description: Full administrative access
-- Impact: Critical systems compromise
+Access is classified based on the following factors:
 
-Medium Risk
-- IAM-Finance-Manager
-- Description: Access to sensitive financial data
+- Level of privilege (standard vs administrative)
+- Sensitivity of accessed data (e.g., financial, HR, security)
+- Potential impact to business operations if misused
 
-Low Risk
-- IAM-Sales-Manager
-- IAM-Finance-Analyst
-- Description: Limited or read-only access
+## Risk Levels
 
-<h2>Controls</h2>
+### High Risk
 
-| Risk Level | Access Review Frequency | Approval Required |
-|-----------|------------------------|------------------|
-| High      | Monthly                | Yes              |
-| Medium    | Quarterly              | Yes              |
-| Low       | Semi-Annual            | No               |
+#### IAM-IT-SystemAdmin
 
-<br />
-<br />
+- Description: Privileged administrative access to critical infrastructure systems
+- Impact: Full system compromise, service disruption, or security breach
 
+### Medium Risk
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+#### IAM-Finance-AccountingManager
+
+- Description: Access to sensitive financial data and reporting systems
+- Impact: Data exposure or financial integrity risk
+
+### Low Risk
+
+#### IAM-Sales-Manager | IAM-Finance-AccountingStaff
+
+- Description: Limited or read-only access to business applications
+- Impact: Minimal operational impact
+
+## Controls
+
+| Risk Level | Access Review Frequency | Approval Required | Justification Required | Auto-Removal if No Response |
+|-----------|------------------------|------------------|------------------------|-----------------------------|
+| High      | Monthly                | Yes              | Yes                    | Yes                         |
+| Medium    | Quarterly              | Yes              | Yes                    | Yes                         |
+| Low       | Semi-Annual            | No               | Optional               | No                          |
+
+## Governance Notes
+- All high-risk access must have an assigned group owner
+- Risk classification must align with RBAC group definitions
+- Risk levels must be reviewed periodically to ensure accuracy
+
