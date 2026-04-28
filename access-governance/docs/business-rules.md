@@ -38,7 +38,7 @@ Example:
 
 ### Sales Department
 
-- Manager → CRM systems and reporting tools
+- Account Executive → CRM systems and reporting tools
 
 ### Human Resources
 
