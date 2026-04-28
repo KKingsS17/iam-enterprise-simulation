@@ -32,7 +32,7 @@ Example:
 
 ### IT Department
 
-- System Admin → Privileged administrative access to infrastructure systems
+- System Administrator → Privileged administrative access to infrastructure systems
 - Cybersecurity Analyst → Security monitoring and investigation access
 - Service Desk Technician → Limited administrative access required for user support
 
