@@ -29,7 +29,7 @@ Access is classified based on the following factors:
 
 ### Low Risk
 
-#### IAM-Sales-Manager | IAM-Finance-AccountingStaff
+#### IAM-Sales-AccountExecutive | IAM-Finance-AccountingStaff
 
 - Description: Limited or read-only access to business applications
 - Impact: Minimal operational impact
