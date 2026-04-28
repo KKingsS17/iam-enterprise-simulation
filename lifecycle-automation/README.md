@@ -1,3 +1,7 @@
+![PowerShell](https://img.shields.io/badge/PowerShell-Automation-blue)
+![Microsoft Graph](https://img.shields.io/badge/MicrosoftGraph-API-green)
+![IAM](https://img.shields.io/badge/IAM-Lifecycle-orange)
+
 # Lifecycle Automation - Module 1
 
 ## Overview
