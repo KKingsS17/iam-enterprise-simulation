@@ -1,7 +1,0 @@
-"Name","Email","Department","Role","Country","Status","Groups"
-"Juan Perez","juan.perez@kkingss.com","Human Resources","HR Management","CR","Enabled","KKingsS, IAM - Human Resources - HR Management"
-"Sasha Braun","sasha.braun@kkingss.com","Finance","Accounting Manager","US","Enabled","KKingsS, IAM - Finance - Accounting Manager"
-"Satoru Gojo","satoru.gojo@kkingss.com","IT","System Administrator","US","Enabled","IAM - IT - System Administrator"
-"Suguru Geto","sugutu.geto@kkingss.com","IT","Cybersecurity Analyst","US","Enabled","KKingsS, IAM - IT - Cybersecurity Analyst"
-"Allan Diaz","allan.diaz@kkingss.com","Software Development","Product Manager","US","Enabled","KKingsS, IAM - Software Development - Product Manager"
-"Erwin Smith","erwin.smith@kkingss.com","IT","Cybersecurity Analyst","US","Disabled",""
