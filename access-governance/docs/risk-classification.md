@@ -15,7 +15,7 @@ Access is classified based on the following factors:
 
 ### High Risk
 
-#### IAM-IT-SystemAdmin
+#### IAM-IT-SystemAdministrator
 
 - Description: Privileged administrative access to critical infrastructure systems
 - Impact: Full system compromise, service disruption, or security breach
