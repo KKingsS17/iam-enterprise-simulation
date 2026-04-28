@@ -100,6 +100,8 @@ When a new user is detected in the HR system, the script:
 #### 4. The users also got assigned the roles and access to apps they need depending on their role, for example the Sales Account Executive Erwin Smith got access to the app "HubSpot CRM" because he was added to the corresponding IAM group:
 ![Joiner Demo](docs/screenshots/joiner-access.png)
 
+---
+
 ### Mover (User Update)
 
 When user attributes change:
@@ -107,7 +109,62 @@ When user attributes change:
 - Only modified attributes are updated
 - Group membership is updated only if required
 
-#### Example Output
+#### 1. In this example the Sales Account Executive Erwin Smith moved to the "IT" department, and will now work as a "Cybersecurity Analyst". Also, the user Allan Diaz moved from Costa Rica to USA, so we made sure to change its user attribute as well in the HR system:
+![Joiner Demo](docs/screenshots/mover-HR-system.png)
+
+#### 2. As we can see in the logs: For the user Erwin Smith, there was an update in the "Department" property from "Sales" to "IT" and there was also an update in the "JobTitle" property from "Account Executive" to "Cybersecurity Analyst", these properties changes trigger a group update for the user, he was removed from the group "IAM - Sales - Account Executive" and got added to the group "IAM - IT - Cybersecurity Analyst". Also, for the user Allan Diaz, the "Country" property was updated from "CR" to "US", and notice that there were no group changes needed for that property change:
+![Joiner Demo](docs/screenshots/mover-logs.png)
+
+#### 3. In this scenario the access to the "HubSpot CRM" app was removed from the user Erwin Smith and now he has access to the "ServiceNow" app, and we can also see he got assigned a couple of roles as well because of the IAM managed group update:
+![Joiner Demo](docs/screenshots/mover-access-app.png)
+![Joiner Demo](docs/screenshots/mover-access-roles.png)
+
+---
+
+### Leaver (User Deprovisioning)
+
+When a user is terminated:
+
+- Account is disabled
+- Access is removed
+- Sessions are revoked
+
+#### 1. We are now terminating the employee Erwin Smith as he will no longer work for the company. We entered the new status in the HR system:
+![Joiner Demo](docs/screenshots/leaver-HR-system.png)
+
+#### 2. We can see in the logs that the user Erwin Smith was removed from all of the groups which means all of his access like apps or roles were removed and his user account was disabled (the system also triggers a Revoke User Sessions on the user account):
+![Joiner Demo](docs/screenshots/leaver-logs.png)
+
+#### 3. We can confirm in Entra ID that the user doesn't have the roles and the access to the app anymore:
+![Joiner Demo](docs/screenshots/mover-access-roles.png)
+![Joiner Demo](docs/screenshots/mover-access-app.png)
+
+---
+
+### Logging & Audit
+
+The system generates structured logs for traceability, it generates a log file for each execution with modifications were made in that execution, and it also generates an acummulative global log containing all of the logs:
+
+- User creation
+- Attribute changes
+- Group modifications
+- Errors
+
+#### This is the Global Log File for the Joiner, Mover, Leaver process we performed before:
+![Joiner Demo](docs/screenshots/global-logFile.png)
+
+#### The system also captures ERROR logs. In this example if we try to create an user but we are missing an attribute in the HR system, the system will not create the user and a log ERROR will be recorded letting us now what's missing:
+![Joiner Demo](docs/screenshots/error.png)
+![Joiner Demo](docs/screenshots/error-logs.png)
+
+---
+
+### Access Report
+
+A CSV report is generated with user access information, this can be used for an IAM audit:
+
+#### Example Report with the current users:
+![Joiner Demo](docs/screenshots/access-report.png)
 
 ## Business Logic
 
