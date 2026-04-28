@@ -88,17 +88,21 @@ When new users are introduced through the HR system, the automation:
 - Assigns required attributes  
 - Applies role-based access through group membership  
 
-1. New users are added to the HR system:
-![Joiner Demo](docs/screenshots/joiner-HR-system.png)
+New users are added to the HR system:
 
-2. Execution logs confirm successful user creation and group assignment:
-![Joiner Demo](docs/screenshots/joiner-logs.png)
+<img src="docs/screenshots/joiner-HR-system.png" width="900">
 
-3. User accounts are provisioned in Entra ID:
-![Joiner Demo](docs/screenshots/joiner-entraID.png)
+Execution logs confirm successful user creation and group assignment:
 
-4. Access is automatically assigned based on role. For example, the Sales Account Executive "Erwin Smith" is granted access to "HubSpot CRM" through group membership:
-![Joiner Demo](docs/screenshots/joiner-access.png)
+<img src="docs/screenshots/joiner-logs.png" width="900">
+
+User accounts are provisioned in Entra ID:
+
+<img src="docs/screenshots/joiner-entraID.png" width="900">
+
+Access is automatically assigned based on role. For example, the Sales Account Executive "Erwin Smith" is granted access to "HubSpot CRM" through group membership:
+
+<img src="docs/screenshots/joiner-access.png" width="900">
 
 ---
 
@@ -109,21 +113,24 @@ When user attributes change, the system:
 - Detects and applies only the modified attributes  
 - Updates access only when required  
 
-1. Changes are introduced in the HR system:
-![Joiner Demo](docs/screenshots/mover-HR-system.png)
+Changes are introduced in the HR system:
 
-2. Logs confirm attribute-level updates:
+<img src="docs/screenshots/mover-HR-system.png" width="900">
+
+Logs confirm attribute-level updates:
 
 - Department: Sales → IT  
 - Job Title: Account Executive → Cybersecurity Analyst  
 
-    These changes trigger a group reassignment, ensuring access aligns with the new role.
-    For "Allan Diaz", only the Country attribute changed (CR → US), which did not require any group updates:
-![Joiner Demo](docs/screenshots/mover-logs.png)
+These changes trigger a group reassignment, ensuring access aligns with the new role.
+For "Allan Diaz", only the Country attribute changed (CR → US), which did not require any group updates:
+  
+<img src="docs/screenshots/mover-logs.png" width="900">
 
-3. Access is adjusted accordingly. The user loses access to "HubSpot CRM" and is granted access to "ServiceNow", along with new role assignments:
-![Joiner Demo](docs/screenshots/mover-access-app.png)
-![Joiner Demo](docs/screenshots/mover-access-roles.png)
+Access is adjusted accordingly. The user loses access to "HubSpot CRM" and is granted access to "ServiceNow", along with new role assignments:
+
+<img src="docs/screenshots/mover-access-app.png" width="900">
+<img src="docs/screenshots/mover-access-roles.png" width="900">
 
 ---
 
@@ -135,15 +142,18 @@ When a user is terminated, the system enforces immediate access removal:
 - Group memberships are removed  
 - Active sessions are revoked  
 
-1. The user status is updated in the HR system:
-![Joiner Demo](docs/screenshots/leaver-HR-system.png)
+The user status is updated in the HR system:
 
-2. Logs confirm full deprovisioning, including group removal and session revocation:
-![Joiner Demo](docs/screenshots/leaver-logs.png)
+<img src="docs/screenshots/leaver-HR-system.png" width="900">
 
-3. In Entra ID, the account is disabled and no longer has assigned roles or application access:
-![Joiner Demo](docs/screenshots/leaver-access-roles.png)
-![Joiner Demo](docs/screenshots/leaver-access-app.png)
+Logs confirm full deprovisioning, including group removal and session revocation:
+
+<img src="docs/screenshots/leaver-logs.png" width="900">
+
+In Entra ID, the account is disabled and no longer has assigned roles or application access:
+
+<img src="docs/screenshots/leaver-access-roles.png" width="900">
+<img src="docs/screenshots/leaver-access-app.png" width="900">
 
 ---
 
@@ -159,11 +169,13 @@ Captured events include:
 - Errors  
 
 Example of the cumulative log:
-![Joiner Demo](docs/screenshots/global-logFile.png)
+
+<img src="docs/screenshots/global-logFile.png" width="900">
 
 The system also enforces validation. If required attributes are missing, the user is not created and an error is logged:
-![Joiner Demo](docs/screenshots/error.png)
-![Joiner Demo](docs/screenshots/error-logs.png)
+
+<img src="docs/screenshots/error.png" width="900">
+<img src="docs/screenshots/error-logs.png" width="900">
 
 ---
 
@@ -174,7 +186,8 @@ A CSV report is generated with user access information, this can be used for an 
 A CSV report is generated to provide an auditable snapshot of user access across the environment.
 
 Example Report:
-![Joiner Demo](docs/screenshots/access-report.png)
+
+<img src="docs/screenshots/access-report.png" width="900">
 
 ## Business Logic
 
