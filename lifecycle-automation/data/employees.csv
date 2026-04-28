@@ -1,6 +1,8 @@
 name,email,department,role,country,status
-Juan Perez,juan.perez@kkingss.com,Human Resources,HR Management,US,active
-Sasha Braun,sasha.braun@kkingss.com,Finance,Accounting Manager,CR,active
+Juan Perez,juan.perez@kkingss.com,Human Resources,HR Management,CR,active
+Sasha Braun,sasha.braun@kkingss.com,Finance,Accounting Manager,US,active
 Satoru Gojo,satoru.gojo@kkingss.com,IT,System Administrator,US,active
 Suguru Geto,sugutu.geto@kkingss.com,IT,Cybersecurity Analyst,US,active
-Allan Diaz,allan.diaz@kkingss.com,Software Development,Product Manager,CR,active
+Allan Diaz,allan.diaz@kkingss.com,Software Development,Product Manager,US,active
+Erwin Smith,erwin.smith@kkingss.com,IT,Cybersecurity Analyst,US,terminated
+Eren Yeager,eren.yeager@kkingss.com,,Software Architect,US,active
