@@ -1,78 +1,97 @@
-<h1>Identity & Access Management - Business Rules</h1>
+# Identity & Access Management - Business Rules
 
-<h2>Purpose</h2>
-This document defines the access control model and rules used to assign permissions within the organization. The goal is to ensure that access is granted based on business roles while enforcing the principle of least privilege.
-<br />
+## Purpose
 
-<h2>Access Model Overview</h2>
+This document defines the access control model and rules used to assign permissions within the organization. The objective is to ensure that access is granted based on business roles while enforcing the principle of least privilege and maintaining auditability.
 
-Access is granted based on Role-Based Access Control (RBAC), where users are assigned to security groups based on their department and role.
-All access must be assigned through IAM-managed groups. Direct user access is not allowed.
+## Access Model Overview
 
-<h2>Naming Convention</h2>
+Access is managed using a Role-Based Access Control (RBAC) model.
+
+- Users are assigned to security groups based on department and role
+- All access is granted through IAM-managed groups
+- Direct access assignment to users is prohibited
+
+## Naming Convention>
 
 IAM-managed groups follow this format:
 
-"IAM - [Department] - [Role]"
+IAM-[Department]-[Role]
 
-<h2>Role-Based Access Rules</h2>
+Example:
 
-Finance Department
-- Accounting Staff → Access to financial reporting systems (read-only)
-- Accounting Manager → Access to financial systems (read/write)
+- IAM - IT - System Administrator
+- IAM - Finance - Accounting Manager
 
-IT Department
-- System Admin → Full administrative access to infrastructure systems
-- Cybersecurity Analyst → Security level access to infrastructure systems
-- IT Support → Regulated access to infrastructure systems to be able to support the employees in the company
+## Role-Based Access Rules
 
-Sales Department
-- Manager → Access to CRM and reporting tools
+### Finance Department
 
-Human Resources Department
-- HR Management → Access to the HCM systems (read/write)
-- Recruiters → Access to the HCM systems (read-only)
+- Accounting Staff → Financial systems (read-only)
+- Accounting Manager → Financial systems (read/write)
 
-Software Development
-- Product Manager → Full administrative access to the IDEs and regulated admin access to infrastructure systems
-- Software Architect → Full administrative access to the IDEs and read-only access to infrastructure systems
-- Software Developers  → Regulated access to the IDEs and read-only access to infrastructure systems
+### IT Department
 
-<h2>Joiner / Mover / Leaver Rules</h2>
+- System Admin → Privileged administrative access to infrastructure systems
+- Cybersecurity Analyst → Security monitoring and investigation access
+- IT Support → Limited administrative access required for user support
 
-Joiner
-- New users are automatically assigned to groups based on department and role attributes.
+### Sales Department
 
-Mover
-- When a user changes department or role:
-  - Previous access is removed
-  - New access is assigned based on updated attributes
+- Manager → CRM systems and reporting tools
 
-Leaver
+### Human Resources
+
+- HR Management → HCM systems (read/write)
+- Recruiters → HCM systems (read-only)
+
+### Software Development
+
+- Product Manager → Administrative access to development tools and limited infrastructure access
+- Software Architect → Administrative access to development tools and read-only infrastructure access
+- Software Developers → Standard access to development tools and read-only infrastructure access
+
+## Joiner / Mover / Leaver (JML)
+
+### Joiner
+
+- Users are automatically assigned to groups based on role and department attributes
+
+### Mover
+
+- Previous access is removed
+- New access is assigned based on updated attributes
+- Access changes must be fully logged
+
+### Leaver
+
 - User account is disabled
 - All group memberships are removed
 - Active sessions are revoked
 
-<h2>Access Assignment Rules</h2>
+## Access Assignment Rules
 
-- Access must always be assigned via IAM-managed groups
-- No direct role assignment to users is allowed
-- All access changes must be traceable via logs
+- All access must be assigned via IAM-managed groups
+- Direct assignment to users is not allowed
+- All changes must be logged and auditable
+- Access must follow least privilege principles
 
-<h2>Governance</h2>
+## Governance
 
-- All high-risk groups must undergo periodic access reviews
-- Access must be revalidated at least monthly for privileged roles
-<br />
-<br />
+- All privileged groups must have assigned owners
+- Group owners are responsible for access validation
+- High-risk access must be reviewed periodically
+- Privileged access must be reviewed at least monthly
 
+## Exceptions
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+- Exceptions must be documented and approved
+- Exceptions must have an expiration date
+- Exceptions are subject to periodic review
+
+## Enforcement
+
+- Access is enforced via automation (PowerShell / Microsoft Graph API)
+- Logs must capture all access changes and lifecycle events
+- Non-compliant access must be removed
+
