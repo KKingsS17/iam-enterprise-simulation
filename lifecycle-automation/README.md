@@ -242,8 +242,8 @@ Department + Role → Security Group
 
 Example:
 
-- "Human Resources - HR Management"
-- "IT - System Administrator"
+- "IAM-IT-System Administrator"
+- "IAM-Finance-Accounting Manager"
 
 This ensures Role-Based Access Control (RBAC).
 
