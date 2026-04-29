@@ -108,7 +108,7 @@ function Update-UserGroups {
 
     foreach ($g in $userGroups) {
         $name = $g.AdditionalProperties.displayName
-        if ($name -like "IAM - *-*") {
+        if ($name -like "IAM-*-*") {
             try {
                 Remove-MgGroupMemberDirectoryObjectByRef -GroupId $g.Id -DirectoryObjectId $userId -ErrorAction Stop
                 Write-Log "Removed $($user.userPrincipalName) from group '$name'" "SUCCESS"
@@ -156,7 +156,7 @@ foreach ($emp in $employees) {
     if (-not (Test-EmployeeRecord $emp)) { continue }
 
     $upn = $emp.email
-    $groupName = "IAM - $($emp.department) - $($emp.role)"
+    $groupName = "IAM-$($emp.department)-$($emp.role)"
     $user = Get-UserByUPN $upn
     $names = $emp.name.Split(" ")
     $firstName = $names[0]
@@ -231,7 +231,7 @@ foreach ($emp in $employees) {
                     Write-Log "No group changes needed for $($user.userPrincipalName)"
                 }
                 else {
-                    Write-Log "Group update require for $($user.userPrincipalName)"
+                    Write-Log "Group update required for $($user.userPrincipalName)"
 
                     Update-UserGroups $user.Id $user $userGroups
                     Add-UserToGroup $user.Id $group.Id $user $group
@@ -243,13 +243,16 @@ foreach ($emp in $employees) {
     # ==================LEAVER===================
     elseif ($emp.status -eq "terminated" -and $user) {
 
-        Write-Log "Disabling user $($user.userPrincipalName)"
-        $userGroups = Get-MgUserMemberOf -UserId $user.Id -All
+        if ($user.accountEnabled) {
 
-        Remove-UserFromAllGroups $user.Id $user $userGroups
-        $revokeSessions = Revoke-MgUserSignInSession -UserId $user.Id
-        Update-MgUser -UserId $user.Id -AccountEnabled:$false
-        Write-Log "User $($user.userPrincipalName) was successfully disabled" "SUCCESS"
+            Write-Log "Disabling user $($user.userPrincipalName)"
+            $userGroups = Get-MgUserMemberOf -UserId $user.Id -All
+
+            Remove-UserFromAllGroups $user.Id $user $userGroups
+            $revokeSessions = Revoke-MgUserSignInSession -UserId $user.Id
+            Update-MgUser -UserId $user.Id -AccountEnabled:$false
+            Write-Log "User $($user.userPrincipalName) was successfully disabled" "SUCCESS"
+        }
     }
 
     # ==================REPORT===================
