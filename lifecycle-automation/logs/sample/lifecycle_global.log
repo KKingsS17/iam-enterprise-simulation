@@ -1,0 +1,60 @@
+2026-04-27 16:09:46 [INFO] - Starting lifecycle processing...
+2026-04-27 16:09:47 [INFO] - Creating user juan.perez@kkingss.com
+2026-04-27 16:09:47 [SUCCESS] - User juan.perez@kkingss.com successfully created
+2026-04-27 16:09:47 [INFO] - Adding juan.perez@kkingss.com to group 'IAM - Human Resources - HR Management'
+2026-04-27 16:09:47 [SUCCESS] - Added juan.perez@kkingss.com to group 'IAM - Human Resources - HR Management'
+2026-04-27 16:09:48 [INFO] - Creating user sasha.braun@kkingss.com
+2026-04-27 16:09:48 [SUCCESS] - User sasha.braun@kkingss.com successfully created
+2026-04-27 16:09:49 [INFO] - Adding sasha.braun@kkingss.com to group 'IAM - Finance - Accounting Manager'
+2026-04-27 16:09:49 [SUCCESS] - Added sasha.braun@kkingss.com to group 'IAM - Finance - Accounting Manager'
+2026-04-27 16:09:50 [INFO] - Creating user satoru.gojo@kkingss.com
+2026-04-27 16:09:50 [SUCCESS] - User satoru.gojo@kkingss.com successfully created
+2026-04-27 16:09:50 [INFO] - Adding satoru.gojo@kkingss.com to group 'IAM - IT - System Administrator'
+2026-04-27 16:09:50 [SUCCESS] - Added satoru.gojo@kkingss.com to group 'IAM - IT - System Administrator'
+2026-04-27 16:09:51 [INFO] - Creating user sugutu.geto@kkingss.com
+2026-04-27 16:09:51 [SUCCESS] - User sugutu.geto@kkingss.com successfully created
+2026-04-27 16:09:52 [INFO] - Adding sugutu.geto@kkingss.com to group 'IAM - IT - Cybersecurity Analyst'
+2026-04-27 16:09:52 [SUCCESS] - Added sugutu.geto@kkingss.com to group 'IAM - IT - Cybersecurity Analyst'
+2026-04-27 16:09:53 [INFO] - Creating user allan.diaz@kkingss.com
+2026-04-27 16:09:53 [SUCCESS] - User allan.diaz@kkingss.com successfully created
+2026-04-27 16:09:53 [INFO] - Adding allan.diaz@kkingss.com to group 'IAM - Software Development - Product Manager'
+2026-04-27 16:09:54 [SUCCESS] - Added allan.diaz@kkingss.com to group 'IAM - Software Development - Product Manager'
+2026-04-27 16:09:54 [INFO] - Creating user erwin.smith@kkingss.com
+2026-04-27 16:09:54 [SUCCESS] - User erwin.smith@kkingss.com successfully created
+2026-04-27 16:09:55 [INFO] - Adding erwin.smith@kkingss.com to group 'IAM - Sales - Account Executive'
+2026-04-27 16:09:55 [SUCCESS] - Added erwin.smith@kkingss.com to group 'IAM - Sales - Account Executive'
+2026-04-27 16:09:55 [INFO] - Process completed
+2026-04-28 10:06:08 [INFO] - Starting lifecycle processing...
+2026-04-28 10:06:09 [INFO] - No attribute changes for juan.perez@kkingss.com
+2026-04-28 10:06:09 [INFO] - No attribute changes for sasha.braun@kkingss.com
+2026-04-28 10:06:10 [INFO] - No attribute changes for satoru.gojo@kkingss.com
+2026-04-28 10:06:11 [INFO] - No attribute changes for sugutu.geto@kkingss.com
+2026-04-28 10:06:12 [SUCCESS] - Updated property 'Country' for allan.diaz@kkingss.com: CR -> US
+2026-04-28 10:06:12 [INFO] - No group changes needed for allan.diaz@kkingss.com
+2026-04-28 10:06:13 [SUCCESS] - Updated property 'Department' for erwin.smith@kkingss.com: Sales -> IT
+2026-04-28 10:06:13 [SUCCESS] - Updated property 'JobTitle' for erwin.smith@kkingss.com: Account Executive -> Cybersecurity Analyst
+2026-04-28 10:06:13 [INFO] - Group update require for erwin.smith@kkingss.com
+2026-04-28 10:06:14 [SUCCESS] - Removed erwin.smith@kkingss.com from group 'IAM - Sales - Account Executive'
+2026-04-28 10:06:14 [SUCCESS] - Added erwin.smith@kkingss.com to group 'IAM - IT - Cybersecurity Analyst'
+2026-04-28 10:06:15 [INFO] - Process completed
+2026-04-28 10:37:34 [INFO] - Starting lifecycle processing...
+2026-04-28 10:37:36 [INFO] - No attribute changes for juan.perez@kkingss.com
+2026-04-28 10:37:37 [INFO] - No attribute changes for sasha.braun@kkingss.com
+2026-04-28 10:37:38 [INFO] - No attribute changes for satoru.gojo@kkingss.com
+2026-04-28 10:37:38 [INFO] - No attribute changes for sugutu.geto@kkingss.com
+2026-04-28 10:37:39 [INFO] - No attribute changes for allan.diaz@kkingss.com
+2026-04-28 10:37:40 [INFO] - Disabling user erwin.smith@kkingss.com
+2026-04-28 10:37:41 [SUCCESS] - Removed erwin.smith@kkingss.com from group 'IAM - IT - Cybersecurity Analyst'
+2026-04-28 10:37:41 [SUCCESS] - User erwin.smith@kkingss.com was successfully disabled
+2026-04-28 10:37:42 [INFO] - Process completed
+2026-04-28 11:03:57 [INFO] - Starting lifecycle processing...
+2026-04-28 11:03:58 [INFO] - No attribute changes for juan.perez@kkingss.com
+2026-04-28 11:03:59 [INFO] - No attribute changes for sasha.braun@kkingss.com
+2026-04-28 11:03:59 [INFO] - No attribute changes for satoru.gojo@kkingss.com
+2026-04-28 11:04:00 [INFO] - No attribute changes for sugutu.geto@kkingss.com
+2026-04-28 11:04:01 [INFO] - No attribute changes for allan.diaz@kkingss.com
+2026-04-28 11:04:02 [INFO] - Disabling user erwin.smith@kkingss.com
+2026-04-28 11:04:03 [SUCCESS] - User erwin.smith@kkingss.com was successfully disabled
+2026-04-28 11:04:03 [ERROR] - Invalid record [Eren Yeager]: Missing/invalid fields -> department
+2026-04-28 11:04:03 [ERROR] - Raw: {"name":"Eren Yeager","email":"eren.yeager@kkingss.com","department":"","role":"Software Architect","country":"US","status":"active"}
+2026-04-28 11:04:03 [INFO] - Process completed
