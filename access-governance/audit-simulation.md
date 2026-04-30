@@ -97,6 +97,3 @@ The access review framework effectively enforces RBAC policies and supports gove
 
 <img src="evidence/screenshots/04-approved-valid-user.png" width="800">
 
-## Access Review Results
-
-
