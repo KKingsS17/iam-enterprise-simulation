@@ -1,8 +1,8 @@
 # ===============================================
 # CONFIG
 # ===============================================
-$csvPath = "C:\Users\kenda\Documents\IAM-Project\employees.csv"
-$logDir = "C:\Users\kenda\Documents\IAM-Project\logs"
+$csvPath = "C:\Users\kenda\Documents\iam-enterprise-simulation\lifecycle-automation\data\employees.csv"
+$logDir = "C:\Users\kenda\Documents\iam-enterprise-simulation\lifecycle-automation\logs"
 $logFile = "$logDir\lifecycle_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
 $globalLogFile = "$logDir\lifecycle_global.log"
 $reportPath = "$logDir\access_report_$(Get-Date -Format 'yyyyMMdd_HHmmss').csv"
