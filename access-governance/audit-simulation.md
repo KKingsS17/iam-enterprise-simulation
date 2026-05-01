@@ -76,24 +76,24 @@ The access review framework effectively enforces RBAC policies and supports gove
 
 - Initial state:
 
-<img src="evidence/screenshots/01-before-unauthorized-access.png" width="800">
+<img src="docs/screenshots/01-before-unauthorized-access.png" width="800">
 
 - Access review detection:
 
-<img src="evidence/screenshots/02-access-review-members.png" width="800">
+<img src="docs/screenshots/02-access-review-members.png" width="800">
 
 - Remediation action:
 
-<img src="evidence/screenshots/03-deny-remove-action.png" width="800">
+<img src="docs/screenshots/03-deny-remove-action.png" width="800">
 
 - Post-remediation state:
 
-<img src="evidence/screenshots/05-after-remediation.png" width="800">
-<img src="evidence/screenshots/06-after-remediation.png" width="800">
+<img src="docs/screenshots/05-after-remediation.png" width="800">
+<img src="docs/screenshots/06-after-remediation.png" width="800">
 
 ### Scenario 2 – Valid Access
 
 - Approved user:
 
-<img src="evidence/screenshots/04-approved-valid-user.png" width="800">
+<img src="docs/screenshots/04-approved-valid-user.png" width="800">
 
