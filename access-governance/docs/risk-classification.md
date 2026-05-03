@@ -1,9 +1,11 @@
 # Access Risk Classification
 
 ## Purpose
-This document defines access risk levels based on privilege, data sensitivity, and potential business impact. It supports governance, audit, and access review processes.
 
-# Risk Classification Criteria
+This document defines access risk levels based on privilege, data sensitivity, and potential business impact.
+It establishes a standardized risk model to support governance controls, audit processes, and periodic access reviews.
+
+## Risk Classification Criteria
 
 Access is classified based on the following factors:
 
@@ -15,26 +17,73 @@ Access is classified based on the following factors:
 
 ### High Risk
 
-#### IAM-IT-SystemAdministrator
+#### Definition:
+Access that provides administrative control over critical systems or tenant-wide resources.
 
-- Description: Privileged administrative access to critical infrastructure systems
-- Impact: Full system compromise, service disruption, or security breach
+#### Examples:
+
+- IAM-IT-System Administrator
+
+#### Description:
+
+- Privileged administrative access to infrastructure and identity systems
+
+#### Impact:
+
+- Full system compromise
+- Service disruption
+- Security breach
+
+---
 
 ### Medium Risk
 
-#### IAM-Finance-AccountingManager
+#### Definition:
 
-- Description: Access to sensitive financial data and reporting systems
-- Impact: Data exposure or financial integrity risk
+- Access to sensitive business data or systems with limited administrative capabilities.
+
+#### Examples:
+
+- IAM-Finance-Accounting Manager
+- IAM-IT-Service Desk Technician
+- IAM-IT-Cybersecurity Analyst
+
+#### Description:
+
+- Access to financial data, user management, or security insights
+- Limited administrative permissions
+
+#### Impact:
+
+- Data exposure
+- Unauthorized changes
+- Operational disruption
+
+---
 
 ### Low Risk
 
-#### IAM-Sales-AccountExecutive | IAM-Finance-AccountingStaff
+#### Definition:
 
-- Description: Limited or read-only access to business applications
-- Impact: Minimal operational impact
+- Access with minimal privileges and limited impact on business operations.
+
+#### Examples:
+
+- IAM-Sales-Account Executive
+- IAM-Finance-Accounting Staff
+
+#### Description:
+
+- Read-only or low-impact access to business applications
+
+#### Impact:
+
+- Minimal operational or security risk
+
+---
 
 ## Controls
+
 
 | Risk Level | Access Review Frequency | Approval Required | Justification Required | Auto-Removal if No Response |
 |-----------|------------------------|------------------|------------------------|-----------------------------|
@@ -42,8 +91,16 @@ Access is classified based on the following factors:
 | Medium    | Quarterly              | Yes              | Yes                    | Yes                         |
 | Low       | Semi-Annual            | No               | Optional               | No                          |
 
-## Governance Notes
-- All high-risk access must have an assigned group owner
+
+## Governance Requirements
+
+- All high-risk access must have designated group owners
 - Risk classification must align with RBAC group definitions
-- Risk levels must be reviewed periodically to ensure accuracy
+- Access must be periodically reviewed based on assigned risk level
+- Privileged access must be continuously monitored and validated
+
+## Notes
+
+- Risk classification is dynamic and must be updated as roles or access requirements evolve
+- Group-based access must inherit the appropriate risk classification
 
