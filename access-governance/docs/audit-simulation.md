@@ -2,13 +2,18 @@
 
 ## Objective
 
-Validate that access across different risk levels is correctly assigned and enforced through Access Reviews.
+To validate that access across different risk levels is properly assigned, reviewed, and enforced in alignment with RBAC policies and governance controls.
 
 ## Scope
 
-- Privileged Access (High Risk)
-- Financial Access (Medium Risk)
-- Business Access (Low Risk)
+- High Risk: Privileged Access
+- Medium Risk: Financial and Operational Access
+- Low Risk: Business Access
+
+## Methodology
+
+Access Reviews were conducted using Microsoft Entra ID to evaluate group-based access assignments.
+Each review validated whether user access aligned with defined business roles and risk classification.
 
 ## Scenario 1: Unauthorized Privileged Access (High Risk)
 
@@ -18,25 +23,27 @@ A Service Desk user (Yuji Itadori) was incorrectly assigned to a privileged IAM 
 
 ### Risk
 
-Privilege escalation and potential system compromise.
+This access introduces a high risk of privilege escalation and potential compromise of critical systems.
 
 ### Action
 
-Access was denied and removed through Access Review.
+Access was denied and removed through the Access Review process.
 
 ### Outcome
 
-Access successfully remediated.
+Unauthorized access was successfully remediated, restoring compliance with RBAC policies.
+
+---
 
 ## Scenario 2: Valid Privileged Access (High Risk)
 
 ### Finding
 
-A user (Satoru Gojo) with the correct administrative role was assigned to the privileged group (IAM-IT-System Administrator).
+A user (Satoru Gojo) was correctly assigned to a privileged IAM group based on their role.
 
 ### Validation
 
-Access aligns with RBAC definition and job responsibilities.
+Access was verified against RBAC definitions and confirmed to align with job responsibilities.
 
 ### Action
 
@@ -44,27 +51,45 @@ Access was approved with justification.
 
 ### Outcome
 
-Access retained as compliant.
+Access was retained and documented as compliant.
+
+---
 
 ## Scenario 3: Financial Access Review (Medium Risk)
 
 ### Finding
 
-All users had appropriate access based on their roles.
+A user (Sasha Braun) maintained appropriate access aligned with their roles.
 
 ### Action
 
-Access approved.
+Access was reviewed and approved.
 
 ### Outcome
 
-No remediation required.
+No remediation actions were required.
+
+---
 
 ## Control Effectiveness
 
-- Unauthorized access detected and removed
-- Valid access confirmed and justified
-- Reviews executed based on risk classification
+The access review process demonstrated the following:
+
+- Detection and removal of unauthorized privileged access
+- Validation and justification of legitimate access
+- Enforcement of periodic reviews aligned with risk classification
+
+## Dashboard Validation
+
+<img src="../reports/dashboard." width="800">
+
+The IAM dashboard was used to validate and visualize:
+
+- Risk distribution across users
+- Privileged access exposure
+- Inactive accounts
+
+This ensures consistency between governance definitions, automated reporting, and audit outcomes.
 
 ## Conclusion
 
