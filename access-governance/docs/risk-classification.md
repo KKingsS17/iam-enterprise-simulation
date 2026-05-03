@@ -18,7 +18,8 @@ Access is classified based on the following factors:
 ### High Risk
 
 #### Definition:
-Access that provides administrative control over critical systems or tenant-wide resources.
+
+- Access that provides administrative control over critical systems or tenant-wide resources.
 
 #### Examples:
 
@@ -40,24 +41,30 @@ Access that provides administrative control over critical systems or tenant-wide
 
 #### Definition:
 
-- Access to sensitive business data or systems with limited administrative capabilities.
+- Includes roles with application management, identity modification, or access to sensitive business data.
 
 #### Examples:
 
 - IAM-Finance-Accounting Manager
 - IAM-IT-Service Desk Technician
 - IAM-IT-Cybersecurity Analyst
+- IAM-Software Development-Product Manager
+- IAM-Software Development-Software Architect
+- IAM-Software Development-Software Developer
 
 #### Description:
 
 - Access to financial data, user management, or security insights
 - Limited administrative permissions
+- Read-only access to usage and audit data
+- Permissions to create and manage enterprise applications and service principals
 
 #### Impact:
 
 - Data exposure
 - Unauthorized changes
 - Operational disruption
+- Potential risk of unauthorized application access or privilege escalation
 
 ---
 
@@ -69,16 +76,18 @@ Access that provides administrative control over critical systems or tenant-wide
 
 #### Examples:
 
+- IAM-Human Resources-HR Management
 - IAM-Sales-Account Executive
 - IAM-Finance-Accounting Staff
 
 #### Description:
 
-- Read-only or low-impact access to business applications
+- Read-only or low-impact access to business applications and basic directory information
 
 #### Impact:
 
 - Minimal operational or security risk
+- Directory data exposure
 
 ---
 
