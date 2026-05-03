@@ -118,7 +118,6 @@ The access review framework effectively enforces RBAC policies and supports iden
 - Post-remediation state:
 
 <img src="../evidence/screenshots/05-after-remediation.png" width="800">
-<img src="../evidence/screenshots/06-after-remediation.png" width="800">
 
 ### Scenario 2 – Valid Access
 
