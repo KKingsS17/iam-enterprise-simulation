@@ -16,8 +16,6 @@ $groupRoleMapping = @{
 
     "IAM-Finance-Accounting Manager" = @("Billing Administrator")
 
-    "IAM-Finance-Accounting Staff" = @("Billing Administrator (Eligible)")
-
     "IAM-Sales-Account Executive" = @("Guest Inviter")
 
     "IAM-Software Development-Product Manager" = @(
@@ -35,7 +33,7 @@ $groupRoleMapping = @{
         "Directory Readers"
     )
 
-    "IAM-Human Resources-HR Management" = @("People Administrator")
+    "IAM-Human Resources-HR Management" = @("Directory Readers")
 }
 
 $highRiskGroups = @("IAM-IT-System Administrator")
@@ -45,8 +43,7 @@ $mediumRiskGroups = @(
     "IAM-IT-Cybersecurity Analyst",
     "IAM-Software Development-Product Manager",
     "IAM-Software Development-Software Architect",
-    "IAM-Software Development-Software Developer",
-    "IAM-Finance-Accounting Staff"
+    "IAM-Software Development-Software Developer"
 )
 
 $privilegedRoles = @("Global Administrator")
