@@ -57,7 +57,7 @@ Example:
 
 - HR Management
 
-  - Permissions to manage user profile attributes and people-related configurations.
+  - Read-only acess to basic directory information.
 
 ### Software Development
 
