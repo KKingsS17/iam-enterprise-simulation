@@ -91,6 +91,16 @@ Access is classified based on the following factors:
 
 ---
 
+## Alignment with Reporting
+
+Risk levels defined in this document are directly implemented in automated reporting and visualized in the IAM dashboard.
+
+- High Risk → Privileged administrative roles (e.g., Global Administrator)
+- Medium Risk → Elevated roles with limited administrative scope
+- Low Risk → Standard access with minimal privileges
+
+This alignment ensures consistency between governance definitions, access reviews, and reporting outputs.
+
 ## Controls
 
 
