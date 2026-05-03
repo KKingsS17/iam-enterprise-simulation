@@ -81,7 +81,7 @@ The access review process demonstrated the following:
 
 ## Dashboard Validation
 
-<img src="../reports/dashboard." width="800">
+<img src="../reports/dashboard.png" width="800">
 
 The IAM dashboard was used to validate and visualize:
 
@@ -93,7 +93,11 @@ This ensures consistency between governance definitions, automated reporting, an
 
 ## Conclusion
 
-The access review framework effectively enforces RBAC policies and supports governance by detecting and remediating inappropriate access while validating legitimate permissions.
+The access review framework effectively enforces RBAC policies and supports identity governance by:
+
+- Detecting and remediating inappropriate access
+- Validating legitimate permissions
+- Providing audit-ready visibility into access risk
 
 ## Evidence
 
@@ -101,23 +105,23 @@ The access review framework effectively enforces RBAC policies and supports gove
 
 - Initial state:
 
-<img src="iam-enterprise-simulation/access-governance/evidence/screenshots/01-before-unauthorized-access.png" width="800">
+<img src="../evidence/screenshots/01-before-unauthorized-access.png" width="800">
 
 - Access review detection:
 
-<img src="iam-enterprise-simulation/access-governance/evidence/screenshots/02-access-review-members.png" width="800">
+<img src="../evidence/screenshots/02-access-review-members.png" width="800">
 
 - Remediation action:
 
-<img src="iam-enterprise-simulation/access-governance/evidence/screenshots/03-deny-remove-action.png" width="800">
+<img src="../evidence/screenshots/03-deny-remove-action.png" width="800">
 
 - Post-remediation state:
 
-<img src="iam-enterprise-simulation/access-governance/evidence/screenshots/05-after-remediation.png" width="800">
-<img src="iam-enterprise-simulation/access-governance/evidence/screenshots/06-after-remediation.png" width="800">
+<img src="../evidence/screenshots/05-after-remediation.png" width="800">
+<img src="../evidence/screenshots/06-after-remediation.png" width="800">
 
 ### Scenario 2 – Valid Access
 
 - Approved user:
 
-<img src="iam-enterprise-simulation/access-governance/evidence/screenshots/04-approved-valid-user.png" width="800">
+<img src="../evidence/screenshots/04-approved-valid-user.png" width="800">
