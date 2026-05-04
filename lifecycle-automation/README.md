@@ -280,13 +280,19 @@ Solution: Input validation before processing
 
 ## Project Structure
 
-- script/
-  - lifecycle_automation.ps1
-    
-- data/
-  - employees.csv
-    
-- logs/
-  - lifecycle logs
-  - access_report.csv
+```bash
+lifecycle_automation/
+│
+├── scripts/
+│   └── lifecycle_automation_v1.ps1
+│
+├── data/
+│   └── employees.csv
+│
+├── logs/
+│   └── sample/
+│
+├── docs/
+│   └── screenshots/
+```
  
