@@ -24,7 +24,6 @@ Key components include:
 - Governance layer (access reviews, audit logs)
 - Security layer (MFA, SSO, Conditional Access, Zero Trust)
 
-Detailed diagrams and design decisions are available in the [architecture](https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/architecture) folder.
 <br />
 <br />
 <h2>Modules</h2>
@@ -55,7 +54,7 @@ Includes:
 - Audit logging
 - Governance policies aligned with least privilege
 <br />
-<h3>Access Control Models (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/access-control-models">Module details</a>)</h3>
+<h3>Access Control Models (In Progress) (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/access-control-models">Module details</a>)</h3>
 
 Defines how access is structured across the environment.
 
@@ -65,7 +64,7 @@ Includes:
 - Group design strategy
 - Naming conventions and scope control
 <br />
-<h3>Automation API (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/automation-api">Module details</a>)</h3>
+<h3>Automation API (In Progress) (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/automation-api">Module details</a>)</h3>
 
 Integration with Microsoft Graph API to extend automation capabilities.
 
@@ -74,7 +73,7 @@ Includes:
 - Programmatic identity management
 - API-based provisioning and updates
 <br />
-<h3>Security – Zero Trust (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/security-zero-trust">Module details</a>)</h3>
+<h3>Security – Zero Trust (In Progress) (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/security-zero-trust">Module details</a>)</h3>
 
 Applies Zero Trust principles to identity and access.
 
