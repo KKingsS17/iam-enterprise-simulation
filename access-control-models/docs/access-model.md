@@ -30,6 +30,11 @@ Access is granted through RBAC using IAM-managed security groups.
 - Each group represents a defined business role
 - Permissions are not assigned directly to users
 
+Dynamic group membership is used to automate access assignment, application provisioning, and license management based on identity attributes.
+
+See:
+[Dynamic Groups and Access Assignment](dynamic-groups.md)
+
 #### Example:
 
 ```bash
@@ -49,6 +54,11 @@ Examples include:
 - Restricting access based on location (country)
 - Requiring MFA or passkey (FIDO2) for privileged roles
 - Blocking access from non-compliant devices
+
+Conditional Access policies enforce contextual and risk-based controls across the environment.
+
+See:
+[Conditional Access Policies](conditional-access.md)
 
 ---
 
@@ -140,9 +150,11 @@ Access is granted with enforced security controls based on both role and context
 
 ## Alignment with Governance
 
-This model aligns with:
+This model aligns with the following governance and security components:
 
 - RBAC group definitions ([Business Rules](../../access-governance/docs/business-rules.md))
+- Dynamic access assignment ([Dynamic Groups and Access Assignment](dynamic-groups.md))
+- Conditional Access enforcement ([Conditional Access Policies](conditional-access.md))
 - Risk classification model
 - Access review processes
 - Automated reporting and dashboard visualization
