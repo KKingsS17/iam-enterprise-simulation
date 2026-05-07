@@ -1,4 +1,4 @@
-# Identity & Access Management - Business Rules
+# IAM - Business Rules
 
 ## Purpose
 
