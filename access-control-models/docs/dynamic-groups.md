@@ -83,6 +83,42 @@ Provides baseline licensing to active users.
 
 ---
 
+## Privileged Access Groups
+
+Privileged access is managed through dedicated IAM-managed groups to support administrative role separation, governance, and enhanced security controls.
+
+### IAM-PRIV-Global-Administrators
+
+#### Purpose
+Contains users assigned to the Global Administrator role.
+
+#### Access Level
+- Full tenant-wide administrative privileges
+
+#### Usage
+- Privileged access management
+- Administrative Conditional Access targeting
+- Governance and audit controls
+- Privileged access reviews
+
+#### Security Controls
+Members of this group are subject to enhanced Conditional Access protections, including:
+
+- Phishing-resistant MFA
+- Compliant device requirements
+- Restricted session controls
+- Enhanced monitoring and auditing
+
+#### Governance Requirements
+- Membership must be tightly controlled
+- Access must be periodically reviewed
+- Emergency access accounts are excluded
+
+#### Risk Classification
+- High Risk
+
+---
+
 ## Application Access Groups
 
 Application access is managed through dedicated IAM-managed groups following least privilege principles.
