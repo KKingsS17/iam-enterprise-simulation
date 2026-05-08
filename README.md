@@ -1,118 +1,173 @@
-<h1>IAM Enterprise Simulation</h1>
+# IAM Enterprise Simulation
 
-<h2>Overview</h2>
-This project simulates a real-world Identity and Access Management (IAM) environment, designed to reflect how modern organizations manage identity lifecycle, access control, and security at scale. The solution focuses on automation, governance, and Zero Trust principles using Microsoft Entra ID, PowerShell, and Microsoft Graph API.
-<br />
-<br />
-<h2>Objectives</h2>
+## Overview
 
-- Simulate enterprise IAM processes (Joiner, Mover, Leaver)
-- Implement structured access control using RBAC
-- Demonstrate access governance and audit capabilities
-- Apply Zero Trust security concepts to identity
-- Showcase automation using scripting and APIs
-<br />
-<h2>Architecture</h2>
+This project simulates a real-world enterprise Identity and Access Management (IAM) environment designed to reflect how modern organizations manage identity lifecycle, access governance, security, and automation at scale.
 
-The architecture models a centralized identity system where Microsoft Entra ID acts as the control plane for authentication, authorization, and policy enforcement.
+The implementation focuses on:
 
-Key components include:
+- Identity Governance
+- RBAC and ABAC access models
+- Conditional Access and Zero Trust
+- Lifecycle automation
+- Audit readiness
+- Dynamic access management
+- Automation using PowerShell and Microsoft Graph API
 
-- Identity provider (Entra ID)
-- Automation layer (PowerShell + Graph API)
-- Access control layer (RBAC groups)
-- Governance layer (access reviews, audit logs)
-- Security layer (MFA, SSO, Conditional Access, Zero Trust)
+The environment is built using Microsoft Entra ID and follows enterprise IAM and Zero Trust security principles.
 
-<br />
-<br />
-<h2>Modules</h2>
+## Objectives
 
-<h3>Architecture</h3>
+- Simulate enterprise Joiner, Mover, Leaver (JML) processes
+- Implement scalable RBAC and ABAC access models
+- Demonstrate governance and audit capabilities
+- Enforce Zero Trust identity security controls
+- Automate identity and access operations
+- Validate access controls through real-world test scenarios
 
-High-level IAM design, including system components, identity flows, and trust boundaries.
-<br />
-<br />
-<h3>Lifecycle Automation (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/lifecycle-automation">Module details</a>)</h3>
+## Architecture
 
-Implements Joiner, Mover, and Leaver (JML) processes using PowerShell.
+The environment models a centralized identity architecture where Microsoft Entra ID acts as the control plane for authentication, authorization, governance, and policy enforcement.
 
-Features:
+### Core Components
+
+- Identity Provider → Microsoft Entra ID
+- Automation Layer → PowerShell + Microsoft Graph API
+- Access Layer → RBAC + Dynamic Groups
+- Governance Layer → Access Reviews + Audit Reporting
+- Security Layer → Conditional Access + Zero Trust
+
+## Modules
+
+### Lifecycle Automation
+
+🔗 [Module Details](lifecycle-automation/README.md)
+
+Implements enterprise Joiner, Mover, and Leaver (JML) automation workflows using PowerShell and Microsoft Graph.
+
+#### Key Features
 
 - Automated user provisioning
-- Role-based group assignment
+- Automated group assignment
+- Identity lifecycle management
 - Structured logging and reporting
 - Error handling and traceability
-<br />
-<h3>Access Governance (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/access-governance">Module details</a>)</h3>
 
-Focuses on visibility and control of access.
+#### Technologies
 
-Includes:
-
-- Access reviews
-- Audit logging
-- Governance policies aligned with least privilege
-<br />
-<h3>Access Control Models (In Progress) (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/access-control-models">Module details</a>)</h3>
-
-Defines how access is structured across the environment.
-
-Includes:
-
-- Role-Based Access Control (RBAC)
-- Group design strategy
-- Naming conventions and scope control
-<br />
-<h3>Automation API (In Progress) (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/automation-api">Module details</a>)</h3>
-
-Integration with Microsoft Graph API to extend automation capabilities.
-
-Includes:
-
-- Programmatic identity management
-- API-based provisioning and updates
-<br />
-<h3>Security – Zero Trust (In Progress) (<a href="https://github.com/KKingsS17/iam-enterprise-simulation/tree/main/security-zero-trust">Module details</a>)</h3>
-
-Applies Zero Trust principles to identity and access.
-
-Includes:
-
-- Conditional Access policies
-- Identity as the security perimeter
-- Continuous verification model
-<br />
-<h2>Technologies</h2>
-
-- Microsoft Entra ID (Azure AD)
 - PowerShell
 - Microsoft Graph API
-<br />
-<h2>Key Capabilities Demonstrated</h2>
+- Microsoft Entra ID
 
-- Identity lifecycle automation (JML)
-- RBAC-based access control design
-- Governance and audit readiness
-- Secure identity architecture (Zero Trust)
-- Scripted automation with structured logging
-<br />
-<h2>Project Goal</h2>
+---
 
-The goal of this project is to demonstrate practical, enterprise-level IAM skills by building a structured and auditable identity system that reflects real-world scenarios.
-<br />
-<br />
-<h2>Notes</h2>
+### Access Governance
 
-This is a simulation project intended for learning and demonstration purposes, but it is designed following real enterprise IAM practices.
-<br />
-<br />
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+🔗 [Module Details](access-governance/README.md)
+
+Implements governance and audit processes aligned with enterprise IAM practices.
+
+#### Key Features
+
+- Access Reviews
+- Risk-based access classification
+- Governance policies
+- Audit simulation scenarios
+- Automated IAM reporting
+- Power BI governance dashboard
+
+#### Technologies
+
+- Microsoft Entra ID Identity Governance
+- PowerShell
+- Microsoft Graph API
+- Power BI
+
+---
+
+### Access Control Models (In Progress)
+
+🔗 [Module Details](access-control-models/README.md)
+
+Implements layered RBAC and ABAC access control architecture with dynamic identity-driven access assignment.
+
+#### Planned Features
+
+- RBAC and ABAC integration
+- Dynamic Groups
+- Conditional Access
+- Context-aware access enforcement
+- Privileged access hardening
+- Zero Trust access validation
+
+---
+
+### Automation API (In Progress)
+
+🔗 [Module Details](automation-api/README.md)
+
+Extends IAM automation capabilities through direct Microsoft Graph API integration.
+
+#### Planned Features
+
+- API-driven provisioning
+- Identity automation workflows
+- Programmatic access management
+- REST API integrations
+
+---
+
+### Security – Zero Trust (In Progress)
+
+🔗 [Module Details](security-zero-trust/README.md)
+
+Implements Zero Trust security principles focused on identity-centric security controls.
+
+#### Planned Features
+
+- Conditional Access architecture
+- Identity Protection
+- Risk-based access controls
+- Phishing-resistant authentication
+- Continuous verification model
+
+---
+
+## Technologies
+
+- Microsoft Entra ID (Azure AD)
+- Microsoft Graph API
+- PowerShell
+- Power BI
+
+## Key IAM Capabilities Demonstrated
+
+- Identity Lifecycle Automation (JML)
+- RBAC and ABAC Access Models
+- Dynamic Group Management
+- Conditional Access
+- Access Reviews and Governance
+- IAM Audit Reporting
+- Zero Trust Security Architecture
+- PowerShell Automation
+- Microsoft Graph API Integration
+
+## Current Project Status
+
+| Module | Status |
+|---|---|
+| Lifecycle Automation | ✅ Completed |
+| Access Governance | ✅ Completed |
+| Access Control Models | 🚧 In Progress |
+| Automation API | 🚧 In Progress |
+| Security – Zero Trust | 🚧 In Progress |
+
+## Project Goal
+
+The goal of this project is to demonstrate practical enterprise-level IAM engineering skills by building a structured, automated, and audit-ready identity environment aligned with real-world security and governance practices.
+
+## Notes
+
+This is a simulation project created for learning, demonstration, and portfolio purposes.
+
+However, the architecture, governance model, security controls, and automation workflows are designed following real enterprise IAM and Zero Trust practices.
