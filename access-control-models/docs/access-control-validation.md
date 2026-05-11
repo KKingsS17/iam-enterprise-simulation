@@ -32,7 +32,7 @@ Based on the user attributes, he will be assigned to the following groups:
 <img src="evidence/screenshots/03-license-dynamic-group-rule.png" width="800">
 <img src="evidence/screenshots/04-servicenow-dynamic-group-rule.png" width="800">
 
-3. The user got successfully assigned to he required groups and required access:
+3. The user got successfully assigned to the required groups and required access:
 
 <img src="evidence/screenshots/05-user-group-membership.png" width="800">
 
