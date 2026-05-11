@@ -15,6 +15,7 @@ The validation covers:
 
 1. The new Finance Accounting Manager "Peter Parker" was added into the HR system with the correct attributes for its role.
 
+<img src="evidence/screenshots/01-new-finance-accounting-manager.png" width="800">
 
 Based on the user attributes, he will be assigned to the following groups:
    
@@ -26,7 +27,10 @@ Based on the user attributes, he will be assigned to the following groups:
 - LIC-BASE-Active-Users (This group assigns the base licenses require to users)
 
 2. Some group dynamic rules configurations:
-   
+
+<img src="evidence/screenshots/02-finance-dynamic-group-rule.png" width="800">
+<img src="evidence/screenshots/03-license-dynamic-group-rule.png" width="800">
+<img src="evidence/screenshots/04-servicenow-dynamic-group-rule.png" width="800">
 
 3. The user got successfully assigned to he required groups and required access:
 
