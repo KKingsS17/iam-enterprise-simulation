@@ -85,7 +85,7 @@ Implements governance and audit processes aligned with enterprise IAM practices.
 
 ---
 
-### Access Control Models (In Progress)
+### Access Control Models
 
 🔗 [Module Details](access-control-models/README.md)
 
