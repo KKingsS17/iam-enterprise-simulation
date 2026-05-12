@@ -2,29 +2,32 @@
 
 ## Purpose
 
-This document defines the access control model and governing rules for permission assignment within the organization.
+This document defines the access governance rules and RBAC model implemented within the environment.
 
-The objective is to ensure that access is granted based on defined business roles, while enforcing the principle of least privilege and maintaining full auditability.
+The objective is to ensure that access is assigned based on business responsibilities while enforcing least privilege, centralized authorization, and auditability.
 
 ---
 
 ## Access Model Overview
 
-Access is managed using a Role-Based Access Control (RBAC) model.
+Access is managed using IAM-controlled RBAC security groups.
 
-- Users are assigned to IAM-managed security groups based on authoritative attributes (e.g., department, role) sourced from the HR system.
-- All access is granted exclusively through IAM-managed groups.
-- Direct assignment of permissions to individual users is strictly prohibited.
+### Core Principles
+
+- Access is assigned through IAM-managed groups only
+- Direct permission assignment to users is prohibited
+- Group membership is based on authoritative HR attributes
+- Access changes must be auditable and traceable
 
 ---
 
 ## Naming Convention
 
-IAM-managed groups follow the standardized naming format:
-
+```text
 IAM-[Department]-[Role]
+```
 
-Example:
+### Examples
 
 - IAM-IT-System Administrator
 - IAM-Finance-Accounting Manager
@@ -33,101 +36,77 @@ Example:
 
 ## Role-Based Access Rules
 
-### Finance Department
-
-- Accounting Manager
-
-  - Administrative access to managing billing and financial data.
-
-### IT Department
-
-- System Administrator
-
-  - Full privileged administrative access across infrastructure systems and tenant-level resources.
-
-- Cybersecurity Analyst
-
-  - Read access to security data and limited administrative permissions within security-related services.
-
-- Service Desk Technician
-
-  - Restricted administrative permissions required to support end users (e.g., password reset, user management).
-
-### Sales Department
-
-- Account Executive
-
-  - Permissions to invite and manage guest users.
-
-### Human Resources
-
-- HR Management
-
-  - Read-only acess to basic directory information.
-
-### Software Development
-
-- Product Manager / Software Architect
-
-  - Permissions to create and manage enterprise applications and service principals.
-  - Read-only access to reporting data (usage, adoption, and audit logs).
-
-- Software Developers
-
-  - Permissions to create and manage application registrations, including authentication and API permissions.
-  - Read-only access to directory data.
+| Department | Role | Access Scope |
+|---|---|---|
+| IT | System Administrator | Full privileged administrative access |
+| IT | Cybersecurity Analyst | Security visibility and limited security administration |
+| IT | Service Desk Technician | Limited user and identity administration |
+| Finance | Accounting Manager | Administrative access to billing and financial data |
+| Sales | Account Executive | Guest user management |
+| Human Resources | HR Management | Read-only directory access |
+| Software Development | Product Manager / Software Architect | Enterprise application and service principal management |
+| Software Development | Software Developer | Application registration and API permission management |
 
 ---
 
 ## Joiner / Mover / Leaver (JML)
 
-### Joiner
+| Process | Control |
+|---|---|
+| Joiner | Access automatically assigned based on identity attributes |
+| Mover | Previous access removed and reassigned based on updated role |
+| Leaver | Accounts disabled, sessions revoked, memberships removed |
 
-- Users are automatically assigned to appropriate IAM groups based on role and department attributes.
+### Governance Requirements
 
-### Mover
-
-- Existing access is removed upon role or department change.
-- New access is provisioned based on updated attributes.
-- All changes must be fully logged and traceable.
-
-### Leaver
-
-- User accounts are disabled immediately.
-- All group memberships are removed.
-- Active sessions are revoked.
+- All changes must be logged
+- Access updates must remain traceable and auditable
 
 ---
 
-## Access Assignment Rules
+## Access Governance Rules
 
--  access must be assigned via IAM-managed groups.
-- Direct assignment of roles or permissions to users is prohibited.
-- All access changes must be logged and auditable.
-- Access must adhere to the principle of least privilege.
-
----
-
-## Governance
-
-- All privileged groups must have designated owners.
-- Group owners are responsible for periodic access validation.
-- High-risk access must undergo regular review.
-- Privileged access must be reviewed at least monthly.
+- Access must follow least privilege principles
+- Administrative access must be separated from standard user access
+- Privileged groups must have designated owners
+- High-risk access requires periodic review
+- Privileged access must be reviewed at least monthly
 
 ---
 
-## Exceptions
+## Exception Management
 
-- All exceptions must be formally documented and approved.
-- Exceptions must include a defined expiration date.
-- Exceptions are subject to periodic review and revalidation.
+Exceptions must:
+
+- Be formally approved
+- Include a documented justification
+- Have a defined expiration date
+- Undergo periodic review
 
 ---
 
 ## Enforcement
 
-- Access controls are enforced through automated processes (PowerShell and Microsoft Graph API).
-- All access and lifecycle events must be logged.
-- Non-compliant or unauthorized access must be remediated promptly.
+Access governance is enforced through:
 
+- Microsoft Entra ID
+- PowerShell automation
+- Microsoft Graph API
+- Dynamic group assignment
+- Access Reviews and audit controls
+
+Non-compliant or unauthorized access must be remediated promptly.
+
+---
+
+## Conclusion
+
+The implemented business rules provide a governance-aligned RBAC framework focused on:
+
+- Centralized access management
+- Least privilege enforcement
+- Automated lifecycle management
+- Privileged access governance
+- Audit readiness and traceability
+
+The model reflects enterprise IAM practices commonly used in modern identity governance environments.
