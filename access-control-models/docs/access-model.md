@@ -2,162 +2,177 @@
 
 ## Overview
 
-This document defines the access control model used to manage identity and authorization within the organization.
+This document defines the enterprise access control model used to manage identity, authorization, and contextual access enforcement within the environment.
 
-The model combines Role-Based Access Control (RBAC) with Attribute-Based Access Control (ABAC) conditions to provide scalable, secure, and context-aware access management.
+The implementation combines Role-Based Access Control (RBAC) with Attribute-Based Access Control (ABAC) concepts to provide scalable, automated, and context-aware access management aligned with Zero Trust security principles.
 
-## Access Control Approach
+---
 
-The organization follows a layered access model:
+## Access Control Architecture
 
-### Layer 1: Identity (Who you are)
+The environment follows a layered access control architecture designed to separate identity, authorization, and contextual enforcement.
 
-Access decisions are based on user identity attributes:
+| Layer | Function |
+|---|---|
+| Identity | Defines user identity attributes |
+| Access | Grants role-based authorization |
+| Context | Evaluates contextual access conditions |
+| Governance | Validates and enforces access controls |
+
+### Layer 1 — Identity
+
+Identity attributes serve as the authoritative source for access decisions.
+
+#### Identity Attributes
 
 - Department
 - Role
-- Country
+- User Type
+- Account Status
 
-These attributes are sourced from the HR system and represent the authoritative identity profile.
+These attributes are sourced from the HR system and used to automate access provisioning and policy evaluation.
 
 ---
 
-### Layer 2: Access (What you can access)
+### Layer 2 — Access
 
-Access is granted through RBAC using IAM-managed security groups.
+Authorization is implemented using RBAC through IAM-managed security groups.
 
-- Users are assigned to groups based on identity attributes
-- Each group represents a defined business role
-- Permissions are not assigned directly to users
+#### Access Model
 
-Dynamic group membership is used to automate access assignment, application provisioning, and license management based on identity attributes.
+- Users are assigned access based on business roles
+- Permissions are granted through groups rather than direct user assignments
+- Access provisioning is automated using dynamic group membership rules
 
-See:
-[Dynamic Groups and Access Assignment](dynamic-groups.md)
+#### Examples
 
-#### Example:
-
-```bash
-IAM-IT-System Administrator → Full privileged administrative access across tenant-level resources.
-
-IAM-Finance-Accounting Manager → Administrative access to managing billing and financial data.
+```text
+IAM-IT-System Administrator
+IAM-Finance-Accounting Manager
+IAM-Human Resources-HR Management
+IAM-APP-QuickBooks-Finance-Users
+IAM-APP-ServiceNow-Admins
 ```
 
+Related implementation details:
+[Dynamic Groups and Access Assignment](dynamic-groups.md)
+
 ---
 
-### Layer 3: Context (When and how access is allowed)
+### Layer 3 — Context
 
-Access is further controlled using contextual conditions (ABAC-like), implemented through Conditional Access policies.
+Access requests are evaluated against contextual security conditions through Conditional Access policies.
 
-Examples include:
+#### Contextual Controls
 
-- Restricting access based on location (country)
-- Requiring MFA or passkey (FIDO2) for privileged roles
-- Blocking access from non-compliant devices
+- MFA enforcement
+- Phishing-resistant authentication
+- Compliant device requirements
+- Geographic access restrictions
+- Risk-based access evaluation
 
-Conditional Access policies enforce contextual and risk-based controls across the environment.
+These controls extend traditional RBAC by incorporating real-time contextual signals into access decisions.
 
-See:
+Related implementation details:
 [Conditional Access Policies](conditional-access.md)
 
 ---
 
-## RBAC to ABAC Transition
+## RBAC and ABAC Integration
 
-The model extends traditional RBAC by incorporating identity and contextual attributes.
+The model combines RBAC for baseline authorization with ABAC-style contextual enforcement.
 
-| Model     | Description                                         |
-|-----------|------------------------------------------------------|
-| RBAC      | Access based on role/group membership                |
-| ABAC      | Access based on attributes (user, device, location)  |
+| Model | Purpose |
+|---|---|
+| RBAC | Grants baseline access through role membership |
+| ABAC | Applies contextual and attribute-driven controls |
 
-In this implementation:
+### Access Logic
 
-- RBAC defines baseline access
-- Attributes refine and restrict access conditions
-
-## Attribute-Based Logic
-
-Access assignment and enforcement rely on the following logic:
-
-- Department + Role → Group Assignment
-- Country → Conditional Access Policy
-- Role → Privilege Level (Risk Classification)
-
-## Access Flow
-
-```bash
-User Identity (Department, Role, Country)
-         ↓
-Group Assignment (RBAC)
-         ↓
-Conditional Access Evaluation (ABAC-like)
-         ↓
+```text
+Department + Role
+        ↓
+Dynamic Group Assignment
+        ↓
+RBAC Access Provisioning
+        ↓
+Conditional Access Evaluation
+        ↓
 Access Granted or Denied
 ```
 
-## Example Scenario
+---
 
-The following example demonstrates how identity attributes, RBAC, and contextual controls work together:
+## Example Access Scenario
 
-### User Attributes
+The following scenario demonstrates how identity attributes, RBAC, and contextual controls work together.
 
-- Department: IT
-- Role: System Administrator
-- Country: Costa Rica
+### User Identity
+
+| Attribute | Value |
+|---|---|
+| Department | IT |
+| Role | System Administrator |
+| Country | Costa Rica |
 
 ### Access Evaluation
 
-- Assigned to group: IAM-IT-System Administrator
-- Privilege level: High Risk
-- Conditional Access:
-  
-  - Passkey (FIDO2) required
-  - Access restricted to compliant devices
+| Control | Result |
+|---|---|
+| Dynamic Group Assignment | IAM-IT-System Administrator |
+| Privilege Classification | High Risk |
+| Authentication Requirement | Phishing-resistant MFA |
+| Device Requirement | Compliant device required |
 
-### Result
+### Outcome
 
-Access is granted with enforced security controls based on both role and context.
+Access is granted only after both authorization and contextual security requirements are satisfied.
+
+---
 
 ## Design Principles
 
-- Least Privilege
-  
-  - Users receive only the access required for their role
-    
-- Separation of Duties
-  
-  - Conflicting roles are not assigned to the same user
-    
-- Centralized Access Control
-  
-  - All permissions are managed through IAM groups
-    
-- Attribute-Driven Automation
-  
-  - Access is dynamically assigned based on identity attributes
-    
-- Context-Aware Security
-  
-  - Access is evaluated based on real-time conditions
- 
+| Principle | Implementation |
+|---|---|
+| Least Privilege | Access limited to required business functions |
+| Separation of Duties | Conflicting access paths are separated |
+| Centralized Authorization | Access managed through IAM groups |
+| Attribute-Driven Automation | Access dynamically assigned using identity attributes |
+| Context-Aware Security | Access evaluated using real-time conditions |
+
+---
+
 ## Benefits
 
-- Scalable access management model
-- Reduced manual access provisioning
-- Improved security through contextual controls
-- Alignment with enterprise IAM best practices
+- Scalable access management
+- Automated provisioning and revocation
+- Reduced manual administration
+- Improved security enforcement
+- Alignment with enterprise IAM governance practices
 
-## Alignment with Governance
+---
 
-This model aligns with the following governance and security components:
+## Governance Alignment
 
-- RBAC group definitions ([Business Rules](../../access-governance/docs/business-rules.md))
-- Dynamic access assignment ([Dynamic Groups and Access Assignment](dynamic-groups.md))
-- Conditional Access enforcement ([Conditional Access Policies](conditional-access.md))
-- Risk classification model
-- Access review processes
-- Automated reporting and dashboard visualization
+The access control model integrates with the broader governance and security architecture, including:
 
-It ensures consistency across identity, access, and governance layers.
+- RBAC group governance
+- Dynamic access assignment
+- Conditional Access enforcement
+- Risk classification processes
+- Access review workflows
+- Audit reporting and monitoring
 
+Related governance documentation:
+
+- [Business Rules](../../access-governance/docs/business-rules.md)
+- [Dynamic Groups and Access Assignment](dynamic-groups.md)
+- [Conditional Access Policies](conditional-access.md)
+
+---
+
+## Conclusion
+
+This access control model demonstrates how RBAC, ABAC concepts, dynamic identity attributes, and Conditional Access controls can be combined to implement scalable and governance-aligned enterprise IAM architecture.
+
+The implementation reflects modern Zero Trust principles by continuously evaluating identity, authorization, and contextual risk before granting access.
