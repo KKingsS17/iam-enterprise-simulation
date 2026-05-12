@@ -8,6 +8,8 @@ It demonstrates how organizations enforce Role-Based Access Control (RBAC), perf
 
 <img src="reports/dashboard.png" width="900">
 
+---
+
 ## Key Capabilities
 
 - Role-Based Access Control (RBAC) using IAM-managed groups
@@ -16,6 +18,8 @@ It demonstrates how organizations enforce Role-Based Access Control (RBAC), perf
 - Detection and remediation of unauthorized access
 - Automated access reporting using PowerShell and Microsoft Graph
 - Visual access monitoring through a Power BI dashboard
+
+---
 
 ## Governance Approach
 
@@ -32,6 +36,8 @@ Access is managed through a structured model:
 
 - Audit Simulation
   - Realistic scenarios to validate control effectiveness
+
+---
 
 ## Project Structure
 
@@ -56,6 +62,8 @@ access-governance/
 │   └── screenshots/
 ```
 
+---
+
 ## IAM Dashboard
 
 The dashboard provides a consolidated view of:
@@ -67,6 +75,8 @@ The dashboard provides a consolidated view of:
 
 It aligns directly with the defined risk model and automated reporting.
 
+---
+
 ## Audit Simulation
 
 The module includes a realistic audit simulation covering:
@@ -77,6 +87,8 @@ The module includes a realistic audit simulation covering:
 
 See full audit simulation: [Audit Simulation](docs/audit-simulation.md)
 
+---
+
 ## Key Outcomes
 
 - Successfully detected and remediated unauthorized privileged access
@@ -84,12 +96,16 @@ See full audit simulation: [Audit Simulation](docs/audit-simulation.md)
 - Established a consistent risk model across documentation, automation, and reporting
 - Delivered audit-ready evidence and reporting artifacts
 
+---
+
 ## Technologies Used
 
 - Microsoft Entra ID
 - Microsoft Graph API
 - PowerShell
 - Power BI
+
+---
 
 ## Conclusion
 
