@@ -11,6 +11,8 @@ The validation covers:
 - Conditional Access protections
 - RBAC and ABAC integration
 
+---
+
 ## Scenario 1 — Automated Dynamic Access Provisioning
 
 ### 1. User Provisioning
@@ -39,17 +41,23 @@ Based on the assigned identity attributes, the user was automatically added to t
 - LIC-BASE-Active-Users  
   Assigns the required baseline licenses to active users
 
+---
+
 ### 2. Dynamic Group Configuration
 
 The following screenshot shows an example of the implemented dynamic membership rules used for automated access assignment.
 
 <img src="evidence/02-dynamic-group-rule.png" width="500">
 
+---
+
 ### 3. Automatic Group Assignment
 
 The user was successfully assigned to the required groups and inherited the corresponding access permissions.
 
 <img src="evidence/03-user-group-membership.png" width="500">
+
+---
 
 ### 4. Access Validation
 
@@ -79,11 +87,15 @@ At this stage, the user was assigned to:
 - IAM-Finance-Accounting Manager
 - IAM-APP-QuickBooks-Finance-Users
 
+---
+
 ### 2. Attribute Update
 
 The user identity attributes were updated in the HR system to reflect the new department and role assignment.
 
 <img src="evidence/07-attribute-update.png" width="900">
+
+---
 
 ### 3. Automatic Access Update
 
@@ -92,6 +104,8 @@ Following the attribute update, the user’s group memberships were automaticall
 Finance-related access assignments were automatically revoked and the user was assigned to the Human Resources role group.
 
 <img src="evidence/08-user-group-membership-after.png" width="500">
+
+---
 
 ### 4. Access Revalidation
 
@@ -119,6 +133,8 @@ The access attempt was blocked by Conditional Access controls.
 
 <img src="evidence/11-access-blocked-error-message.png" width="500">
 
+---
+
 ### 2. Sign-In Log Validation
 
 The sign-in logs show the failed authentication attempt, including the failure reason and additional access evaluation details.
@@ -126,6 +142,8 @@ The sign-in logs show the failed authentication attempt, including the failure r
 <img src="evidence/12-sign-in-logs.png" width="900">
 
 <img src="evidence/13-failure-reason-sign-in-logs.png" width="500">
+
+---
 
 ### 3. Conditional Access Evaluation
 
