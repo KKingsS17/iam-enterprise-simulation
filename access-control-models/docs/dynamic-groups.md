@@ -9,214 +9,118 @@ Dynamic groups are used to automate:
 - Identity-based access assignment
 - Application access provisioning
 - License assignment
-- Role separation
-- Administrative access management
+- Privileged access management
 
-The implementation follows enterprise IAM best practices by leveraging user attributes and standardized naming conventions.
+The implementation leverages Microsoft Entra ID dynamic membership rules and standardized IAM naming conventions to support scalable and governance-aligned access management.
 
-## Dynamic Group Strategy
+---
 
-The environment uses dynamic membership rules based on identity attributes such as:
+## Dynamic Group Architecture
+
+Dynamic membership rules evaluate identity attributes to automatically assign users to the appropriate groups and access paths.
+
+### Identity Attributes Used
 
 - Department
 - Job Title
 - User Type
 - Account Status
 
-This approach enables scalable and automated identity governance while reducing manual access administration.
+This approach reduces manual administration while supporting automated provisioning and lifecycle management.
+
+---
 
 ## Naming Convention
 
-Dynamic groups follow standardized naming conventions based on their function.
-
 | Prefix | Purpose |
 |---|---|
-| IAM-ALL | Identity baseline and tenant-wide groups |
+| IAM-ALL | Baseline and tenant-wide access groups |
 | IAM-APP | Application access management |
 | IAM-PRIV | Privileged access management |
 | LIC-BASE | License assignment |
 
+---
+
 ## Identity and Baseline Groups
 
-### IAM-ALL-Active-Member-Users
+| Group | Purpose |
+|---|---|
+| IAM-ALL-Active-Member-Users | Contains all active internal users |
+| IAM-ALL-Tenant-Users | Contains all tenant users, including guests |
+| LIC-BASE-Active-Users | Assigns baseline licenses to active users |
 
-#### Purpose
-Contains all active internal users with the user type `Member`.
+### Key Functions
 
-#### Usage
 - Baseline access assignment
-- Conditional Access targeting
-- Enterprise application scoping
+- Policy targeting
+- License provisioning
 - Governance reporting
-
-#### Dynamic Criteria
-- Account enabled
-- User type = Member
-
----
-
-### IAM-ALL-Tenant-Users
-
-#### Purpose
-Contains all users within the tenant, including internal and guest users.
-
-#### Usage
-- Tenant-wide visibility
-- Broad policy targeting
-- Reporting and auditing
-
----
-
-### LIC-BASE-Active-Users
-
-#### Purpose
-Provides baseline licensing to active users.
-
-#### Usage
-- Automatic license assignment
-- Standardized user provisioning
-- Identity lifecycle automation
-
-#### Dynamic Criteria
-- Account enabled
-- Required identity attributes populated
 
 ---
 
 ## Privileged Access Groups
 
-Privileged access is managed through dedicated IAM-managed groups to support administrative role separation, governance, and enhanced security controls.
+| Group | Purpose |
+|---|---|
+| IAM-PRIV-Global-Administrators | Contains Global Administrator users |
 
-### IAM-PRIV-Global-Administrators
+### Security Controls
 
-#### Purpose
-Contains users assigned to the Global Administrator role.
-
-#### Access Level
-- Full tenant-wide administrative privileges
-
-#### Usage
-- Privileged access management
-- Administrative Conditional Access targeting
-- Governance and audit controls
-- Privileged access reviews
-
-#### Security Controls
-Members of this group are subject to enhanced Conditional Access protections, including:
+Privileged access groups are protected through:
 
 - Phishing-resistant MFA
 - Compliant device requirements
-- Restricted session controls
+- Restricted privileged sessions
 - Enhanced monitoring and auditing
 
-#### Governance Requirements
-- Membership must be tightly controlled
-- Access must be periodically reviewed
-- Emergency access accounts are excluded
+### Governance Controls
 
-#### Risk Classification
-- High Risk
+- Periodic access reviews
+- Role separation
+- Tight membership control
+- Break-glass account exclusion
 
 ---
 
 ## Application Access Groups
 
-Application access is managed through dedicated IAM-managed groups following least privilege principles.
-
-### IAM-APP-ServiceNow-Users
-
-#### Purpose
-Provides standard user access to ServiceNow.
-
-#### Access Level
-- Standard application access
-
----
-
-### IAM-APP-ServiceNow-Admins
-
-#### Purpose
-Provides administrative access to ServiceNow.
-
-#### Access Level
-- Elevated administrative permissions
+| Group | Purpose |
+|---|---|
+| IAM-APP-ServiceNow-Users | Standard ServiceNow access |
+| IAM-APP-ServiceNow-Admins | Administrative ServiceNow access |
+| IAM-APP-HubSpot-Sales-Users | Standard HubSpot CRM access |
+| IAM-APP-HubSpot-Admins | Administrative HubSpot access |
+| IAM-APP-QuickBooks-Finance-Users | Standard QuickBooks ERP access |
+| IAM-APP-QuickBooks-Admins | Administrative QuickBooks ERP access |
 
 ---
 
-### IAM-APP-HubSpot-Sales-Users
+## Governance Alignment
 
-#### Purpose
-Provides standard CRM access for Sales users within HubSpot.
+The dynamic group implementation supports:
 
-#### Access Level
-- Sales and CRM operations
-
----
-
-### IAM-APP-HubSpot-Admins
-
-#### Purpose
-Provides administrative access to HubSpot CRM.
-
-#### Access Level
-- Elevated administrative permissions
-
----
-
-### IAM-APP-QuickBooks-Finance-Users
-
-#### Purpose
-Provides ERP access for Finance users within QuickBooks.
-
-#### Access Level
-- Financial operations access
-
----
-
-### IAM-APP-QuickBooks-Admins
-
-#### Purpose
-Provides administrative access to QuickBooks ERP.
-
-#### Access Level
-- Elevated administrative permissions
-
----
-
-## Governance Model
-
-The dynamic group implementation supports the following governance controls:
-
-- Automated access provisioning
+- Automated access provisioning and revocation
 - Least privilege enforcement
 - Role separation
-- Standardized application access management
+- Standardized access assignment
 - Scalable lifecycle management
 
-Administrative access groups are separated from standard user groups to reduce privilege exposure and support audit requirements.
+Dynamic groups are integrated with the broader RBAC and Conditional Access architecture to support automated and context-aware access control.
 
-## Alignment with Access Control Model
-
-Dynamic groups are integrated with the overall access control architecture:
-
-| Layer | Function |
-|---|---|
-| Identity | User attributes drive group membership |
-| Access | RBAC group assignment |
-| Context | Conditional Access enforcement |
-
-This alignment enables a hybrid RBAC and attribute-driven access model consistent with enterprise Zero Trust principles.
+---
 
 ## Benefits
 
-- Reduced manual access administration
+- Reduced manual administration
 - Consistent access assignment
 - Improved scalability
 - Simplified governance and auditing
 - Enhanced security through role separation
 
+---
+
 ## Conclusion
 
-The dynamic group model provides a scalable and automated foundation for identity governance, application access management, and license provisioning.
+The dynamic group model provides a scalable foundation for automated identity governance, application access management, and license provisioning.
 
-The implementation reflects enterprise IAM practices by combining RBAC, attribute-based automation, and governance-driven access management.
+The implementation reflects enterprise IAM practices by combining RBAC, attribute-driven automation, and governance-aligned access management.
