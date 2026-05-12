@@ -14,16 +14,7 @@ The module focuses on:
 - Privileged access protection
 - Automated governance and enforcement
 
----
-
-## Objectives
-
-- Implement a layered RBAC and ABAC access control model
-- Automate access assignment using identity attributes
-- Enforce Conditional Access and Zero Trust controls
-- Simulate enterprise-grade privileged access protection
-- Validate access behavior through real-world test scenarios
-- Demonstrate scalable IAM governance architecture
+<img src="docs/evidence/14-conditional-access-policy.png" width="500">
 
 ---
 
@@ -78,9 +69,7 @@ Identity attributes are used to automate and refine access decisions.
 - User Type
 - Account Status
 
----
-
-## Dynamic Groups
+### Dynamic Groups
 
 Dynamic membership rules automate:
 
@@ -89,19 +78,17 @@ Dynamic membership rules automate:
 - License assignment
 - Application access management
 
-### Examples
+#### Examples
 
 - LIC-BASE-Active-Users
 - IAM-APP-QuickBooks-Finance-Users
 - IAM-PRIV-Global-Administrators
 
----
-
-## Conditional Access
+### Conditional Access
 
 Conditional Access policies enforce contextual and risk-based security controls.
 
-### Implemented Controls
+#### Implemented Controls
 
 - MFA enforcement
 - Phishing-resistant authentication
@@ -109,7 +96,7 @@ Conditional Access policies enforce contextual and risk-based security controls.
 - Geographic access restrictions
 - Risk-based access protection
 
-## Implemented Conditional Access Policies
+### Implemented Conditional Access Policies
 
 | Policy | Purpose |
 |---|---|
@@ -136,8 +123,7 @@ The implementation was validated through multiple real-world IAM scenarios, incl
 - Conditional Access enforcement for privileged users
 - Context-aware authentication blocking
 
-Detailed validation evidence and screenshots:
-[Access Control Validation](docs/access-control-validation.md)
+**Detailed validation evidence and screenshots: [Access Control Validation](docs/access-control-validation.md)**
 
 ---
 
@@ -166,26 +152,11 @@ Detailed validation evidence and screenshots:
 ## Key IAM Concepts Demonstrated
 
 - RBAC and ABAC integration
-- Dynamic identity-driven access management
-- Zero Trust security architecture
-- Conditional Access enforcement
+- Dynamic access provisioning and revocation
+- Conditional Access and Zero Trust enforcement
 - Privileged access hardening
 - Context-aware authentication controls
-- Automated access provisioning and revocation
 - Enterprise IAM governance
-
----
-
-## Enterprise Security Alignment
-
-The implementation aligns with modern enterprise IAM and Zero Trust security principles, including:
-
-- Least Privilege Access
-- Defense in Depth
-- Continuous Verification
-- Identity-Centric Security
-- Context-Aware Access Enforcement
-- Automated Governance Controls
 
 ---
 
