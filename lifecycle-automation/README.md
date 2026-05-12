@@ -7,6 +7,8 @@
 ## Overview
 This module simulates enterprise-grade Identity Lifecycle Automation, implementing Joiner, Mover, and Leaver (JML) processes using PowerShell, Microsoft Graph API, and Microsoft Entra ID. The goal is to simulate integration with an HR system, automate user provisioning, updates, deprovisioning, and apply role-based access control through dynamic group assignment while ensuring consistency, traceability, and alignment with access control policies.
 
+---
+
 ## Objective
 
 The goal of this module is to automate user lifecycle management:
@@ -19,6 +21,8 @@ This approach ensures:
 - Consistency between HR data and Entra ID
 - Proper access assignment
 - Auditability through logs and reporting
+
+---
 
 ## Architecture Diagram
 
@@ -79,6 +83,8 @@ Processing Flow:
    - Leaver
 4. Update group memberships
 5. Generate audit report
+
+---
 
 ## Demonstration
 
@@ -193,6 +199,8 @@ Example Report:
 
 <img src="docs/screenshots/access-report.png" width="900">
 
+---
+
 ## Business Logic
 
 ### Joiner (User Provisioning)
@@ -234,6 +242,8 @@ Security focus:
 
 - Ensures immediate access removal
 
+---
+
 ## Access Control Model
 
 Access is assigned based on:
@@ -247,12 +257,16 @@ Example:
 
 This ensures Role-Based Access Control (RBAC).
 
+---
+
 ## Technologies Used
 
 - PowerShell (automation scripting)
 - Microsoft Graph API (identity operations)
 - Microsoft Entra ID (identity platform)
 - CSV-based HR simulation (data source)
+
+---
 
 ## Challenges & Solutions
 
@@ -268,6 +282,8 @@ Solution: Added group membership validation
 Issue: Invalid HR records  
 Solution: Input validation before processing
 
+---
+
 ## How to Run
 
 1. Connect to Microsoft Graph
@@ -277,6 +293,8 @@ Solution: Input validation before processing
 ```powershell
 .\lifecycle_automation_v1.ps1
 ```
+
+---
 
 ## Project Structure
 
