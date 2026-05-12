@@ -4,28 +4,20 @@
 
 This document defines the Conditional Access framework implemented within the environment.
 
-The policies follow a layered Zero Trust security model designed to enforce:
-
-- Strong authentication
-- Device compliance
-- Context-aware access controls
-- Privileged access protection
-- Risk-based remediation
-
-The implementation aligns with enterprise IAM and security best practices using Microsoft Entra ID.
+The implementation follows a layered Zero Trust security model designed to strengthen authentication, protect privileged access, and enforce contextual security controls using Microsoft Entra ID.
 
 ---
 
 ## Conditional Access Architecture
 
-The Conditional Access model is organized into the following security layers:
+The Conditional Access framework is organized into the following security layers:
 
 | Layer | Purpose |
 |---|---|
-| Baseline | Core protections applied to all users |
+| Baseline | Core protections applied across the environment |
 | Authentication Security | Protection of authentication registration processes |
 | Privileged Access | Hardened controls for administrative access |
-| Contextual Controls | Location-based and contextual restrictions |
+| Contextual Controls | Location and context-aware access restrictions |
 | Risk-Based Protection | Automated response to risky sign-ins and compromised users |
 
 ---
@@ -34,257 +26,127 @@ The Conditional Access model is organized into the following security layers:
 
 ### Baseline Policies
 
-#### CA01-BASE-RequireMFA-AllUsers
+| Policy | Purpose |
+|---|---|
+| CA01-BASE-RequireMFA-AllUsers | Require MFA for all users |
+| CA02-BASE-BlockLegacyAuth | Block legacy authentication |
+| CA03-BASE-RequireCompliantDevice | Require compliant devices |
+| CA04-BASE-RequireMFA-GuestUsers | Require MFA for guest users |
 
-#### Objective
-Require Multi-Factor Authentication (MFA) for all users across all cloud applications.
+#### Key Controls
 
-#### Scope
-- All users
-- Excludes break-glass accounts, service accounts, and service principals
-
-#### Controls
-- Require MFA
-
-#### Purpose
-Establishes MFA as the baseline authentication requirement across the environment.
-
----
-
-#### CA02-BASE-BlockLegacyAuth
-
-#### Objective
-Block legacy authentication protocols that do not support modern authentication or MFA.
-
-#### Scope
-- All users
-- Excludes break-glass accounts, service accounts, and service principals
-
-#### Controls
-- Block legacy authentication clients
-
-#### Purpose
-Reduces exposure to password spray and credential-based attacks.
-
----
-
-#### CA03-BASE-RequireCompliantDevice
-
-#### Objective
-Require access from compliant and managed devices.
-
-#### Scope
-- Corporate users
-- Excludes break-glass accounts, service accounts, and service principals
-
-#### Controls
-- Require compliant device
+- MFA enforcement
+- Legacy authentication blocking
+- Compliant device enforcement
+- Guest access protection
 
 #### Notes
-This policy is currently configured in **Report-only** mode to evaluate operational impact before enforcement.
 
-#### Purpose
-Improves endpoint security posture and reduces access from unmanaged devices.
-
----
-
-#### CA04-BASE-RequireMFA-GuestUsers
-
-#### Objective
-Require MFA for guest and external users.
-
-#### Scope
-- Guest users
-
-#### Controls
-- Require MFA
-
-#### Purpose
-Protects collaboration scenarios involving external identities.
+- CA03-BASE-RequireCompliantDevice is currently configured in **Report-only** mode to evaluate operational impact before enforcement.
+- Break-glass accounts, service accounts, and service principals are excluded where appropriate.
 
 ---
 
 ### Authentication Security Policies
 
-#### CA05-AUTH-SecureSecurityInfoRegistration
+| Policy | Purpose |
+|---|---|
+| CA05-AUTH-SecureSecurityInfoRegistration | Protect MFA and authentication method registration |
 
-#### Objective
-Protect the registration and modification of authentication methods and security information.
+#### Key Controls
 
-#### Scope
-- All users
-- Excludes break-glass accounts, service accounts, and service principals
-
-#### Controls
-- Require MFA
-- Restrict registration to trusted conditions
-
-#### Purpose
-Reduces the risk of unauthorized MFA registration or authentication method manipulation.
+- MFA enforcement for registration processes
+- Protection against unauthorized authentication method changes
 
 ---
 
 ### Privileged Access Policies
 
-#### CA10-PRIV-HardenedAccess-Admins
+| Policy | Purpose |
+|---|---|
+| CA10-PRIV-HardenedAccess-Admins | Harden privileged authentication and device requirements |
+| CA11-PRIV-SignInFrequency-Admins | Restrict privileged session persistence |
 
-#### Objective
-Enforce hardened authentication and device security requirements for privileged users.
+#### Key Controls
 
-#### Scope
-- Administrative roles and privileged groups
-- Excludes break-glass accounts, service accounts, and service principals
-
-#### Controls
-- Require phishing-resistant MFA
-- Require compliant device
-
-#### Purpose
-Provides additional protection for privileged access and reduces the risk of administrative compromise.
-
----
-
-#### CA11-PRIV-SignInFrequency-Admins
-
-#### Objective
-Limit session persistence for privileged users.
-
-#### Scope
-- Administrative roles and privileged groups
-- Excludes break-glass accounts, service accounts, and service principals
-
-#### Controls
-- Sign-in frequency enforced for privileged sessions
-
-#### Purpose
-Reduces the risk associated with long-lived privileged sessions.
+- Phishing-resistant MFA
+- Compliant device requirements
+- Restricted privileged session duration
 
 ---
 
 ### Contextual Access Policies
 
-#### CA20-LOC-BlockNonTrustedCountries
-
-#### Objective
-Restrict access from non-approved geographic locations.
-
-#### Scope
-- All users
-- Excludes break-glass accounts, service accounts, and service principals
-
-#### Controls
-- Block access from non-trusted countries
+| Policy | Purpose |
+|---|---|
+| CA20-LOC-BlockNonTrustedCountries | Restrict access from non-approved countries |
+| CA21-LOC-Admins-ExternalRestrictions | Apply stricter controls to privileged external access |
 
 #### Trusted Locations
+
 - Costa Rica
 - United States
 
-#### Purpose
-Reduces exposure to unauthorized access attempts originating from untrusted regions.
+#### Key Controls
 
----
-
-#### CA21-LOC-Admins-ExternalRestrictions
-
-#### Objective
-Apply stricter access requirements for privileged users connecting from external or non-trusted locations.
-
-#### Scope
-- Administrative roles and privileged groups
-- Excludes break-glass accounts, service accounts, and service principals
-
-#### Controls
-- Require phishing-resistant MFA
-- Require compliant device
-
-#### Purpose
-Provides additional protection for privileged access outside trusted locations.
+- Geographic access restrictions
+- Hardened controls for external privileged access
 
 ---
 
 ### Risk-Based Policies
 
-#### CA30-RISK-HighSignInRisk
+| Policy | Purpose |
+|---|---|
+| CA30-RISK-HighSignInRisk | Respond to risky sign-in attempts |
+| CA31-RISK-UserRisk | Respond to compromised or high-risk users |
 
-#### Objective
-Respond to high-risk sign-in attempts detected by Microsoft Entra ID Identity Protection.
+#### Key Controls
 
-#### Scope
-- All users
-- Excludes break-glass accounts, service accounts, and service principals.
-
-#### Controls
-- Require MFA or block access for high-risk sign-ins
-
-#### Notes
-Requires Microsoft Entra ID P2 licensing.
-
-#### Purpose
-Mitigates account compromise and suspicious authentication activity.
-
----
-
-#### CA31-RISK-UserRisk
-
-#### Objective
-Respond to users identified as compromised or high-risk.
-
-#### Scope
-- All users
-- Excludes break-glass accounts, service accounts, and service principals
-
-#### Controls
-- Require password reset for high-risk users
+- Risk-based MFA enforcement
+- Automated password reset requirements
+- Identity Protection integration
 
 #### Notes
-Requires Microsoft Entra ID P2 licensing.
 
-#### Purpose
-Supports automated remediation of compromised identities.
+These policies require Microsoft Entra ID P2 licensing.
 
 ---
 
 ## Break-Glass Account Strategy
 
-Break-glass accounts are excluded from all Conditional Access policies.
+Emergency access accounts are excluded from Conditional Access enforcement to ensure administrative recovery capabilities remain available during outages or policy misconfigurations.
 
-These accounts are reserved exclusively for emergency administrative access scenarios and are protected through:
+### Security Protections
 
-- Strong authentication methods
+- Phishing-resistant authentication
 - Offline credential storage
 - Continuous monitoring and auditing
-
-This approach ensures emergency access remains available even during Conditional Access failures or misconfigurations.
 
 ---
 
 ## Zero Trust Alignment
 
-The Conditional Access framework supports Zero Trust principles by enforcing:
-
-- Verify explicitly
-- Use least privilege access
-- Assume breach
-
-Security decisions are continuously evaluated based on:
+The Conditional Access framework supports Zero Trust principles through continuous evaluation of:
 
 - User identity
-- Device compliance
-- Location
-- Risk level
 - Authentication strength
+- Device compliance
+- Geographic location
+- Sign-in risk
+
+The implementation follows a “verify explicitly” approach before granting access to resources.
 
 ---
 
 ## Conclusion
 
-This Conditional Access implementation demonstrates a layered enterprise security model designed to:
+This Conditional Access implementation demonstrates a layered enterprise security architecture focused on:
 
-- Strengthen identity protection
-- Harden privileged access
-- Enforce contextual security controls
-- Reduce attack surface
-- Support governance and compliance requirements
+- Strong authentication enforcement
+- Privileged access hardening
+- Context-aware access control
+- Risk-based remediation
+- Identity-centric Zero Trust security
 
-The policies provide scalable and audit-ready access protection aligned with modern enterprise IAM practices.
-
+The policies provide scalable and governance-aligned access protection consistent with modern enterprise IAM practices.
