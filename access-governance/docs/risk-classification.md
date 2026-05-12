@@ -5,6 +5,8 @@
 This document defines access risk levels based on privilege, data sensitivity, and potential business impact.
 It establishes a standardized risk model to support governance controls, audit processes, and periodic access reviews.
 
+---
+
 ## Risk Classification Criteria
 
 Access is classified based on the following factors:
@@ -12,6 +14,8 @@ Access is classified based on the following factors:
 - Level of privilege (standard vs administrative)
 - Sensitivity of accessed data (e.g., financial, HR, security)
 - Potential impact to business operations if misused
+
+---
 
 ## Risk Levels
 
@@ -101,6 +105,8 @@ Risk levels defined in this document are directly implemented in automated repor
 
 This alignment ensures consistency between governance definitions, access reviews, and reporting outputs.
 
+---
+
 ## Controls
 
 
@@ -110,6 +116,7 @@ This alignment ensures consistency between governance definitions, access review
 | Medium    | Quarterly              | Yes              | Yes                    | Yes                         |
 | Low       | Semi-Annual            | No               | Optional               | No                          |
 
+---
 
 ## Governance Requirements
 
@@ -117,6 +124,8 @@ This alignment ensures consistency between governance definitions, access review
 - Risk classification must align with RBAC group definitions
 - Access must be periodically reviewed based on assigned risk level
 - Privileged access must be continuously monitored and validated
+
+---
 
 ## Notes
 
