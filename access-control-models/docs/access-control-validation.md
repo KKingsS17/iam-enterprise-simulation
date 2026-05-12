@@ -2,81 +2,152 @@
 
 ## Overview
 
-This document validates the access control model through multiple identity and access test scenarios.
+This document validates the implemented access control model through multiple identity and access management test scenarios.
 
 The validation covers:
 
 - Dynamic group assignment
 - Context-aware access enforcement
-- Conditional Access protection
+- Conditional Access protections
 - RBAC and ABAC integration
 
-## SCENARIO 1 — Dynamic Access Assignment
+## Scenario 1 — Automated Dynamic Access Provisioning
 
-1. The new Finance Accounting Manager "Peter Parker" was added into the HR system with the correct attributes for its role:
+### 1. User Provisioning
 
-<img src="evidence/screenshots/01-new-finance-accounting-manager.png" width="800">
+A new Finance Accounting Manager user was provisioned through the HR system with the appropriate identity attributes for the assigned role.
 
-Based on the user attributes, he will be assigned to the following groups:
-   
-- IAM-ALL-Active-Member-Users (This group lists all active member users)
-- IAM-ALL-Tenant-Users (This group lists all users in the tenant)
-- IAM-APP-QuickBooks-Finance-Users (This group provides finance users with access to QuickBooks ERP)
-- IAM-APP-ServiceNow-Users (This group provides users with access to ServiceNow)
-- IAM-Finance-Accounting Manager (This group provides finance users with tenant and Azure roles)
-- LIC-BASE-Active-Users (This group assigns the base licenses require to users)
+<img src="evidence/screenshots/01-new-finance-accounting-manager.png" width="900">
 
-2. Some group dynamic rules configurations:
+Based on the assigned identity attributes, the user was automatically added to the following groups:
 
-<img src="evidence/screenshots/02-finance-dynamic-group-rule.png" width="800">
-<img src="evidence/screenshots/03-license-dynamic-group-rule.png" width="800">
-<img src="evidence/screenshots/04-servicenow-dynamic-group-rule.png" width="800">
+- IAM-ALL-Active-Member-Users  
+  Contains all active internal users with the `Member` user type
 
-3. The user got successfully assigned to the required groups and required access:
+- IAM-ALL-Tenant-Users  
+  Contains all users within the tenant
 
-<img src="evidence/screenshots/05-user-group-membership.png" width="800">
+- IAM-APP-QuickBooks-Finance-Users  
+  Provides Finance users with access to QuickBooks ERP
 
-4. The user has the required role assignments, access to apps, and required licenses to complete his day-to-day work:
+- IAM-APP-ServiceNow-Users  
+  Provides users with access to ServiceNow
 
-<img src="evidence/screenshots/06-inherited-tenant-roles.png" width="800">
-<img src="evidence/screenshots/07-inherited-azure-roles.png" width="800">
-<img src="evidence/screenshots/08-assigned-apps.png" width="800">
-<img src="evidence/screenshots/09-assigned-licenses.png" width="800">
+- IAM-Finance-Accounting Manager  
+  Provides Finance users with the required tenant and Azure role assignments
 
-## SCENARIO 2 — Attribute Change Removes Access
+- LIC-BASE-Active-Users  
+  Assigns the required baseline licenses to active users
 
-1. Now the user "Peter Parker" will move from beign the Accounting Manager for the Finance team to HR Management for the Human Resources department, this is his current group memebership, he is in the "IAM-Finance-Accounting Manager" group and the "IAM-APP-QuickBooks-Finance-Users":
+### 2. Dynamic Group Configuration
 
-<img src="evidence/screenshots/10-user-group-membership-before.png" width="800">
+The following screenshot shows an example of the implemented dynamic membership rules used for automated access assignment.
 
-2. The attributes were updated in the HR system:
+<img src="evidence/screenshots/02-finance-dynamic-group-rule.png" width="500">
 
-<img src="evidence/screenshots/11-attribute-change.png" width="800">
+### 3. Automatic Group Assignment
 
-3. The user group membership was automatically updated, he doesn't have the "IAM-Finance-Accounting Manager" group and the "IAM-APP-QuickBooks-Finance-Users" anymore and now he has the "IAM-Human Resources-HR Management" group:
+The user was successfully assigned to the required groups and inherited the corresponding access permissions.
 
-<img src="evidence/screenshots/12-user-group-membership-after.png" width="800">
+<img src="evidence/screenshots/05-user-group-membership.png" width="500">
 
-4. He doesn't have access to the Finance apps anymore, and his tenant and Azure roles were updated to the necessary roles for its current position:
+### 4. Access Validation
 
-<img src="evidence/screenshots/13-new-app-assignment.png" width="800">
+The user received the required role assignments and application access necessary to perform daily job responsibilities.
 
-<img src="evidence/screenshots/14-new-inherited-tenant-roles.png" width="800">
+<img src="evidence/screenshots/07-inherited-azure-roles.png" width="500">
+<img src="evidence/screenshots/08-assigned-apps.png" width="500">
 
-<img src="evidence/screenshots/15-new-inherited-azure-roles.png" width="800">
+### Result
 
-## SCENARIO 3 — Admin Blocked by Conditional Access
+Access was automatically provisioned based on user identity attributes and dynamic group membership without manual intervention.
 
-1. The System Administrator "Satoru Gojo" tried to sign-in to the Entra Admin Center portal from an unregistered device, he received an error message:
+---
 
-<img src="evidence/screenshots/16-access-blocked-error-message.png" width="800">
+## Scenario 2 — Automatic Access Revocation After Attribute Change
 
-2. The sign-in logs shows the failure attempt to sign-in and the reason of the failure with some more information:
+### 1. Initial Access State
 
-<img src="evidence/screenshots/17-sign-in-logs.png" width="800">
+The user transitioned from the Finance Accounting Manager role to HR Management within the Human Resources department.
 
-<img src="evidence/screenshots/18-failure-reason-sign-in-logs.png" width="800">
+The following screenshots show the user’s initial group membership and Finance-related access assignments.
 
-3. We can also see the Conditional Access policy that blocked the access because the conditions were not satisfied, in this case the System Administrator should be using a compliant device:
+<img src="evidence/screenshots/10-user-group-membership-before.png" width="500">
 
-<img src="evidence/screenshots/19-conditional-access-policy.png" width="800">
+At this stage, the user was assigned to:
+
+- IAM-Finance-Accounting Manager
+- IAM-APP-QuickBooks-Finance-Users
+
+### 2. Attribute Update
+
+The user identity attributes were updated in the HR system to reflect the new department and role assignment.
+
+<img src="evidence/screenshots/11-attribute-change.png" width="900">
+
+### 3. Automatic Access Update
+
+Following the attribute update, the user’s group memberships were automatically reevaluated and updated.
+
+Finance-related access assignments were automatically revoked and the user was assigned to the Human Resources role group.
+
+<img src="evidence/screenshots/12-user-group-membership-after.png" width="500">
+
+### 4. Access Revalidation
+
+Finance application access and role assignments were automatically revoked.
+
+The user inherited the appropriate application access and role assignments required for the assigned business role.
+
+<img src="evidence/screenshots/13-new-app-assignment.png" width="500">
+
+<img src="evidence/screenshots/15-new-inherited-azure-roles.png" width="500">
+
+### Result
+
+Access was automatically revoked and reassigned based on updated identity attributes without requiring manual administrator intervention.
+
+---
+
+## Scenario 3 — Conditional Access Enforcement for Privileged Access
+
+### 1. Blocked Administrative Sign-In Attempt
+
+A System Administrator attempted to sign in to the Microsoft Entra Admin Center from a non-compliant and unregistered device.
+
+The access attempt was blocked by Conditional Access controls.
+
+<img src="evidence/screenshots/16-access-blocked-error-message.png" width="500">
+
+### 2. Sign-In Log Validation
+
+The sign-in logs show the failed authentication attempt, including the failure reason and additional access evaluation details.
+
+<img src="evidence/screenshots/17-sign-in-logs.png" width="900">
+
+<img src="evidence/screenshots/18-failure-reason-sign-in-logs.png" width="500">
+
+### 3. Conditional Access Evaluation
+
+The Conditional Access policy evaluation confirms that access was blocked because the required security conditions were not satisfied.
+
+In this scenario, privileged access required the use of a compliant device.
+
+<img src="evidence/screenshots/19-conditional-access-policy.png" width="500">
+
+### Result
+
+Conditional Access policies successfully enforced privileged access restrictions and prevented administrative access from non-compliant devices.
+
+---
+
+## Conclusion
+
+The validation scenarios confirmed that the implemented access control model correctly enforces:
+
+- Automated RBAC and ABAC access assignment
+- Dynamic access revocation based on identity changes
+- Conditional Access protections for privileged users
+- Context-aware and risk-aware security controls
+
+The implementation demonstrates a scalable, automated, and governance-aligned enterprise IAM architecture following Zero Trust security principles.
