@@ -5,22 +5,12 @@
 # Lifecycle Automation - Module 1
 
 ## Overview
-This module simulates enterprise-grade Identity Lifecycle Automation, implementing Joiner, Mover, and Leaver (JML) processes using PowerShell, Microsoft Graph API, and Microsoft Entra ID. The goal is to simulate integration with an HR system, automate user provisioning, updates, deprovisioning, and apply role-based access control through dynamic group assignment while ensuring consistency, traceability, and alignment with access control policies.
 
----
+This module simulates enterprise-grade Identity Lifecycle Automation using Microsoft Entra ID, Microsoft Graph API, and PowerShell.
 
-## Objective
+The implementation automates Joiner, Mover, and Leaver (JML) processes by integrating HR-driven identity data with automated provisioning, access assignment, lifecycle updates, and deprovisioning workflows.
 
-The goal of this module is to automate user lifecycle management:
-
-- Provision new users (Joiner)
-- Update existing users based on changes (Mover)
-- Deprovision users securely (Leaver)
-
-This approach ensures:
-- Consistency between HR data and Entra ID
-- Proper access assignment
-- Auditability through logs and reporting
+The solution focuses on scalable identity governance, RBAC-based access control, auditability, and operational consistency aligned with enterprise IAM practices.
 
 ---
 
@@ -72,245 +62,244 @@ H --> J
 H --> K
 ```
 
-HR System (CSV) → Validation Layer → Microsoft Entra ID (via Microsoft Graph)
+### Processing Flow
 
-Processing Flow:
-1. Validate input records
-2. Check if user exists
-3. Execute:
-   - Joiner
-   - Mover
-   - Leaver
-4. Update group memberships
-5. Generate audit report
+1. Validate HR input records
+2. Detect lifecycle state
+3. Execute Joiner, Mover, or Leaver workflow
+4. Update RBAC group membership
+5. Generate audit logs and reporting artifacts
 
 ---
 
-## Demonstration
+## Key Capabilities
 
-The following section demonstrates how the lifecycle automation system behaves across different identity lifecycle scenarios.
+- Automated Joiner, Mover, and Leaver workflows
+- RBAC-based access provisioning
+- Differential attribute updates
+- Automated group reassignment
+- Session revocation and deprovisioning
+- Structured audit logging and reporting
+- HR-driven identity lifecycle automation
+- Microsoft Graph API integration
 
-### Joiner (User Provisioning)
+---
 
-When new users are introduced through the HR system, the automation:
+## Lifecycle Scenarios
 
-- Provisions accounts in Microsoft Entra ID  
-- Assigns required attributes  
-- Applies role-based access through group membership  
+### Joiner — User Provisioning
 
-New users are added to the HR system:
+The Joiner workflow automatically provisions users, assigns identity attributes, and applies RBAC access based on HR identity data.
+
+#### HR Input
 
 <img src="docs/screenshots/joiner-HR-system.png" width="900">
 
-Execution logs confirm successful user creation and group assignment:
+#### Automation Execution
 
 <img src="docs/screenshots/joiner-logs.png" width="900">
 
-User accounts are provisioned in Entra ID:
+#### Provisioned Identity
 
 <img src="docs/screenshots/joiner-entraID.png" width="900">
 
-Access is automatically assigned based on role. For example, the Sales Account Executive "Erwin Smith" is granted access to "HubSpot CRM" through group membership:
+#### Access Assignment
+
+The Sales Account Executive "Erwin Smith" automatically receives access to HubSpot CRM through IAM-managed group membership.
 
 <img src="docs/screenshots/joiner-access.png" width="900">
 
 ---
 
-### Mover (Attribute & Access Updates)
+### Mover — Attribute and Access Updates
 
-When user attributes change, the system:
+The Mover workflow detects identity attribute changes and updates access only when required.
 
-- Detects and applies only the modified attributes  
-- Updates access only when required  
-
-Changes are introduced in the HR system:
+#### HR Attribute Changes
 
 <img src="docs/screenshots/mover-HR-system.png" width="900">
 
-Logs confirm attribute-level updates:
+#### Differential Update Detection
 
-- Department: Sales → IT  
-- Job Title: Account Executive → Cybersecurity Analyst  
-
-These changes trigger a group reassignment, ensuring access aligns with the new role.
-For "Allan Diaz", only the Country attribute changed (CR → US), which did not require any group updates:
+The automation updates only modified attributes and reevaluates group membership when role or department changes occur.
   
 <img src="docs/screenshots/mover-logs.png" width="900">
 
-Access is adjusted accordingly. The user loses access to "HubSpot CRM" and is granted access to "ServiceNow", along with new role assignments:
+#### Access Reassignment
+
+The user loses access to HubSpot CRM and receives ServiceNow access and updated role assignments aligned with the new role.
 
 <img src="docs/screenshots/mover-access-app.png" width="900">
 <img src="docs/screenshots/mover-access-roles.png" width="900">
 
 ---
 
-### Leaver (Deprovisioning)
+### Leaver — Deprovisioning
 
-When a user is terminated, the system enforces immediate access removal:
+The Leaver workflow enforces immediate access removal and account deactivation.
 
-- Account is disabled  
-- Group memberships are removed  
-- Active sessions are revoked  
-
-The user status is updated in the HR system:
+#### HR Status Update
 
 <img src="docs/screenshots/leaver-HR-system.png" width="900">
 
-Logs confirm full deprovisioning, including group removal and session revocation:
+#### Deprovisioning Execution
 
 <img src="docs/screenshots/leaver-logs.png" width="900">
 
-In Entra ID, the account is disabled and no longer has assigned roles or application access:
+#### Access Removal Validation
+
+The account is disabled and all access assignments are removed.
 
 <img src="docs/screenshots/leaver-access-roles.png" width="900">
 <img src="docs/screenshots/leaver-access-app.png" width="900">
 
 ---
 
-### Logging & Audit
+### Access Reporting
 
-The system generates structured logs for each execution, capturing all operations performed. Additionally, a cumulative log provides a full audit trail across executions.
+The automation generates structured CSV reports containing user access and governance data.
 
-Captured events include:
+The reports provide an auditable snapshot of:
 
-- User provisioning  
-- Attribute updates  
-- Access changes  
-- Errors  
+- User lifecycle status
+- Group memberships
+- Assigned access
+- Identity attributes
 
-Example of the cumulative log:
+#### Example Report
+
+<img src="docs/screenshots/access-report.png" width="900">
+
+---
+
+### Logging and Audit
+
+Structured logs are generated for every execution to maintain auditability and operational traceability.
+
+#### Logged Events
+
+- User provisioning
+- Attribute updates
+- Access reassignment
+- Deprovisioning actions
+- Validation failures
+- Operational errors
+
+#### Audit Log Example
 
 <img src="docs/screenshots/global-logFile.png" width="900">
 
-The system also enforces validation. If required attributes are missing, the user is not created and an error is logged:
+#### Validation Enforcement
+
+Invalid HR records are rejected and logged before processing.
 
 <img src="docs/screenshots/error.png" width="900">
 <img src="docs/screenshots/error-logs.png" width="900">
 
 ---
 
-### Access Report
+## Automation Logic
 
-A CSV report is generated with user access information, this can be used for an IAM audit:
+### Joiner
 
-A CSV report is generated to provide an auditable snapshot of user access across the environment.
+- Creates user identities in Entra ID
+- Assigns identity attributes
+- Applies RBAC access through group membership
 
-Example Report:
+#### Key Feature
 
-<img src="docs/screenshots/access-report.png" width="900">
+Retry logic handles Microsoft Graph eventual consistency during provisioning.
 
 ---
 
-## Business Logic
+### Mover
 
-### Joiner (User Provisioning)
+- Detects attribute-level changes
+- Updates only modified attributes
+- Reassigns access when role or department changes occur
 
-- Creates user in Entra ID using HR data
-- Assigns attributes:
-  
-  - DisplayName
-  - UserPrincipalName
-  - Department
-  - Job Title
-  - Country
-  - Company
-- Assigns users to role-based groups based on attributes
+#### Key Feature
 
-Key challenge:
-- Microsoft Graph eventual consistency → handled with retry logic
+Differential updates reduce unnecessary operations and improve efficiency.
 
-### Mover (User Update)
+---
 
-- Detects attribute-level changes:
+### Leaver
 
-  - Department
-  - Job Title
-  - Country
-- Updates only changed attributes
-- Updates group membership only if role/department changed
-
-Key feature:
-- Differential updates to avoid unnecessary operations
-
-### Leaver (Deprovisioning)
-
-- Removes user from all groups
+- Removes group memberships
 - Revokes active sessions
-- Disables account
+- Disables user accounts
 
-Security focus:
+#### Security Focus
 
-- Ensures immediate access removal
+Immediate access removal reduces post-termination exposure.
 
 ---
 
 ## Access Control Model
 
-Access is assigned based on:
+Access assignment follows a standardized RBAC model:
 
-Department + Role → Security Group
-
-Example:
-
-- "IAM-IT-System Administrator"
-- "IAM-Finance-Accounting Manager"
-
-This ensures Role-Based Access Control (RBAC).
-
----
-
-## Technologies Used
-
-- PowerShell (automation scripting)
-- Microsoft Graph API (identity operations)
-- Microsoft Entra ID (identity platform)
-- CSV-based HR simulation (data source)
-
----
-
-## Challenges & Solutions
-
-### 1. Unnecessary Updates
-Issue: Users were being updated even without changes  
-Solution: Implemented attribute-level comparison to ensure idempotent updates
-
-### 2. Group Reassignment Issues
-Issue: Users were removed and re-added unnecessarily  
-Solution: Added group membership validation
-
-### 3. Data Validation
-Issue: Invalid HR records  
-Solution: Input validation before processing
-
----
-
-## How to Run
-
-1. Connect to Microsoft Graph
-2. Prepare CSV file
-3. Run script:
-
-```powershell
-.\lifecycle_automation_v1.ps1
+```text
+Department + Role → IAM Security Group
 ```
+
+### Examples
+
+- IAM-IT-System Administrator
+- IAM-Finance-Accounting Manager
+
+This model ensures centralized and governance-aligned authorization management.
+
+---
+
+## Technologies
+
+- Microsoft Entra ID
+- Microsoft Graph API
+- PowerShell
+- CSV-based HR simulation
+
+---
+
+## Engineering Challenges
+
+| Challenge | Solution |
+|---|---|
+| Unnecessary updates | Implemented attribute-level comparison for idempotent updates |
+| Group reassignment issues | Added group membership validation |
+| Invalid HR data | Implemented pre-processing validation |
+| Microsoft Graph eventual consistency | Added retry logic during provisioning |
 
 ---
 
 ## Project Structure
 
 ```bash
-lifecycle_automation/
-│
+lifecycle-automation/
 ├── scripts/
-│   └── lifecycle_automation_v1.ps1
-│
 ├── data/
-│   └── employees.csv
-│
 ├── logs/
-│   └── sample/
-│
-├── docs/
-│   └── screenshots/
+└── docs/
 ```
+
+---
+
+## Key IAM Concepts Demonstrated
+
+- Identity lifecycle automation
+- RBAC-based access provisioning
+- Automated access governance
+- Differential identity updates
+- Identity deprovisioning
+- Audit logging and traceability
+- HR-driven identity orchestration
+- Microsoft Graph API automation
  
+---
+
+## Conclusion
+
+This module demonstrates how enterprise IAM lifecycle processes can be automated using Microsoft Entra ID, PowerShell, and Microsoft Graph API.
+
+The implementation reflects real-world IAM engineering practices focused on automation, governance, operational consistency, and secure identity lifecycle management.
