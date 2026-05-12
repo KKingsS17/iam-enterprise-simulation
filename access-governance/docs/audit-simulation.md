@@ -4,16 +4,22 @@
 
 To validate that access across different risk levels is properly assigned, reviewed, and enforced in alignment with RBAC policies and governance controls.
 
+---
+
 ## Scope
 
 - High Risk: Privileged Access
 - Medium Risk: Financial and Operational Access
 - Low Risk: Business Access
 
+---
+
 ## Methodology
 
 Access Reviews were conducted using Microsoft Entra ID to evaluate group-based access assignments.
 Each review validated whether user access aligned with defined business roles and risk classification.
+
+---
 
 ## Scenario 1: Unauthorized Privileged Access (High Risk)
 
@@ -79,6 +85,8 @@ The access review process demonstrated the following:
 - Validation and justification of legitimate access
 - Enforcement of periodic reviews aligned with risk classification
 
+---
+
 ## Dashboard Validation
 
 <img src="../reports/dashboard.png" width="800">
@@ -91,6 +99,8 @@ The IAM dashboard was used to validate and visualize:
 
 This ensures consistency between governance definitions, automated reporting, and audit outcomes.
 
+---
+
 ## Conclusion
 
 The access review framework effectively enforces RBAC policies and supports identity governance by:
@@ -98,6 +108,8 @@ The access review framework effectively enforces RBAC policies and supports iden
 - Detecting and remediating inappropriate access
 - Validating legitimate permissions
 - Providing audit-ready visibility into access risk
+
+---
 
 ## Evidence
 
@@ -118,6 +130,8 @@ The access review framework effectively enforces RBAC policies and supports iden
 - Post-remediation state:
 
 <img src="../evidence/screenshots/05-after-remediation.png" width="800">
+
+---
 
 ### Scenario 2 – Valid Access
 
