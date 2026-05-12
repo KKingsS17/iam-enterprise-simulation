@@ -6,6 +6,8 @@ This document defines the access control model and governing rules for permissio
 
 The objective is to ensure that access is granted based on defined business roles, while enforcing the principle of least privilege and maintaining full auditability.
 
+---
+
 ## Access Model Overview
 
 Access is managed using a Role-Based Access Control (RBAC) model.
@@ -13,6 +15,8 @@ Access is managed using a Role-Based Access Control (RBAC) model.
 - Users are assigned to IAM-managed security groups based on authoritative attributes (e.g., department, role) sourced from the HR system.
 - All access is granted exclusively through IAM-managed groups.
 - Direct assignment of permissions to individual users is strictly prohibited.
+
+---
 
 ## Naming Convention
 
@@ -24,6 +28,8 @@ Example:
 
 - IAM-IT-System Administrator
 - IAM-Finance-Accounting Manager
+
+---
 
 ## Role-Based Access Rules
 
@@ -71,6 +77,8 @@ Example:
   - Permissions to create and manage application registrations, including authentication and API permissions.
   - Read-only access to directory data.
 
+---
+
 ## Joiner / Mover / Leaver (JML)
 
 ### Joiner
@@ -89,12 +97,16 @@ Example:
 - All group memberships are removed.
 - Active sessions are revoked.
 
+---
+
 ## Access Assignment Rules
 
 -  access must be assigned via IAM-managed groups.
 - Direct assignment of roles or permissions to users is prohibited.
 - All access changes must be logged and auditable.
 - Access must adhere to the principle of least privilege.
+
+---
 
 ## Governance
 
@@ -103,11 +115,15 @@ Example:
 - High-risk access must undergo regular review.
 - Privileged access must be reviewed at least monthly.
 
+---
+
 ## Exceptions
 
 - All exceptions must be formally documented and approved.
 - Exceptions must include a defined expiration date.
 - Exceptions are subject to periodic review and revalidation.
+
+---
 
 ## Enforcement
 
