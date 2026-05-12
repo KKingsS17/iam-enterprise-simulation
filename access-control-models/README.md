@@ -6,15 +6,15 @@ This module implements a layered enterprise access control architecture combinin
 
 The implementation is designed to simulate how modern organizations manage scalable, automated, and context-aware access control using Microsoft Entra ID and Zero Trust security principles.
 
-The module focuses on:
-
 - Identity-driven access assignment
 - Dynamic access provisioning and revocation
 - Context-aware authentication controls
 - Privileged access protection
 - Automated governance and enforcement
 
-<img src="docs/evidence/14-conditional-access-policy.png" width="500">
+The following validation scenario demonstrates Conditional Access enforcement blocking privileged access from a non-compliant device.
+
+<img src="docs/evidence/14-conditional-access-policy.png" width="800">
 
 ---
 
@@ -29,7 +29,7 @@ The access control model follows a layered enterprise IAM architecture:
 | Context | Conditional Access and security enforcement |
 | Governance | Access validation and policy enforcement |
 
-## Access Flow
+### Access Flow
 
 ```text
 User Identity Attributes
@@ -52,22 +52,9 @@ Access Granted or Denied
 
 Access is assigned through IAM-managed security groups representing business roles and responsibilities.
 
-#### Examples
-
-- IAM-IT-System Administrator
-- IAM-Finance-Accounting Manager
-- IAM-Human Resources-HR Management
-
 ### ABAC (Attribute-Based Access Control)
 
 Identity attributes are used to automate and refine access decisions.
-
-#### Attributes Used
-
-- Department
-- Role
-- User Type
-- Account Status
 
 ### Dynamic Groups
 
@@ -78,17 +65,9 @@ Dynamic membership rules automate:
 - License assignment
 - Application access management
 
-#### Examples
-
-- LIC-BASE-Active-Users
-- IAM-APP-QuickBooks-Finance-Users
-- IAM-PRIV-Global-Administrators
-
 ### Conditional Access
 
-Conditional Access policies enforce contextual and risk-based security controls.
-
-#### Implemented Controls
+Conditional Access policies enforce contextual and risk-based security controls across the environment, including:
 
 - MFA enforcement
 - Phishing-resistant authentication
@@ -96,21 +75,7 @@ Conditional Access policies enforce contextual and risk-based security controls.
 - Geographic access restrictions
 - Risk-based access protection
 
-### Implemented Conditional Access Policies
-
-| Policy | Purpose |
-|---|---|
-| CA01-BASE-RequireMFA-AllUsers | Require MFA for all users |
-| CA02-BASE-BlockLegacyAuth | Block legacy authentication |
-| CA03-BASE-RequireCompliantDevice | Require compliant devices |
-| CA04-BASE-RequireMFA-GuestUsers | Require MFA for guest users |
-| CA05-AUTH-SecureSecurityInfoRegistration | Protect MFA registration |
-| CA10-PRIV-HardenedAccess-Admins | Harden privileged access |
-| CA11-PRIV-SignInFrequency-Admins | Restrict privileged session persistence |
-| CA20-LOC-BlockNonTrustedCountries | Restrict access by location |
-| CA21-LOC-Admins-ExternalRestrictions | Harden external privileged access |
-| CA30-RISK-HighSignInRisk | Respond to risky sign-ins |
-| CA31-RISK-UserRisk | Respond to compromised users |
+**Detailed Conditional Access architecture and policies: [Conditional Access Policies](docs/conditional-access.md)**
 
 ---
 
@@ -160,7 +125,7 @@ The implementation was validated through multiple real-world IAM scenarios, incl
 
 ---
 
-## Notes
+## Project Context
 
 This module is part of the broader **IAM Enterprise Simulation** project and was designed to simulate real-world enterprise IAM architecture, governance, and security practices.
 
