@@ -122,8 +122,6 @@ Implements a layered RBAC and ABAC access control architecture with dynamic iden
 
 ### Automation API — Module 4 *(In Progress)*
 
-🔗 **[Module Details](automation-api/README.md)**
-
 Extends IAM automation capabilities through direct Microsoft Graph API integration.
 
 #### Planned Features
@@ -136,8 +134,6 @@ Extends IAM automation capabilities through direct Microsoft Graph API integrati
 ---
 
 ### Security – Zero Trust — Module 5 *(In Progress)*
-
-🔗 **[Module Details](security-zero-trust/README.md)**
 
 Implements Zero Trust security principles focused on identity-centric security controls.
 
