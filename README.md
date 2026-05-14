@@ -56,6 +56,53 @@ The environment models a centralized identity architecture where Microsoft Entra
 
 Implements enterprise Joiner, Mover, and Leaver (JML) automation workflows using PowerShell and Microsoft Graph API.
 
+```mermaid
+flowchart LR
+
+subgraph Data_Layer
+    A[HR System - CSV]
+end
+
+subgraph Processing_Layer
+    B[Validation]
+    C{User Exists?}
+    D[JOINER]
+    E{Changes?}
+    F[MOVER]
+    G[LEAVER]
+end
+
+subgraph Identity_Layer
+    H[Entra ID]
+    I[Groups]
+end
+
+subgraph Output_Layer
+    J[Logs]
+    K[Report]
+end
+
+A --> B
+B --> C
+
+C -->|No| D
+C -->|Yes| E
+
+E -->|No| J
+E -->|Yes| F
+
+C -->|Terminated| G
+
+D --> I
+F --> I
+G --> I
+
+I --> H
+H --> J
+H --> K
+```
+
+
 #### Highlights
 
 - Automated user provisioning and deprovisioning
