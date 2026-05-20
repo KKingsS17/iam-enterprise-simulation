@@ -46,38 +46,69 @@ The following operations are executed through Microsoft Graph PowerShell SDK cmd
 
 ### JOINER
 
-```text
-Create User
-    ↓
-Assign Attributes
-    ↓
-Assign IAM Groups
-    ↓
-Generate Logs & Metrics
+```mermaid
+flowchart TD
+
+    A[HR JOINER Event]
+    B[Validate Employee Data]
+    C[POST /users]
+    D[GET /groups]
+    E[New-MgGroupMemberByRef]
+    F[Provision Access]
+    G[Generate Logs & Metrics]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
 ```
 
 ### MOVER
 
-```text
-Update User Attributes
-    ↓
-Remove Existing Access
-    ↓
-Assign Updated Access
-    ↓
-Generate Logs & Metrics
+```mermaid
+flowchart TD
+
+    A[HR MOVER Event]
+    B[Validate Employee Data]
+    C[PATCH /users]
+    D[GET User Group Membership]
+    E[Remove-MgGroupMemberByRef]
+    F[GET Target Groups]
+    G[New-MgGroupMemberByRef]
+    H[Generate Logs & Metrics]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
 ```
 
 ### LEAVER
 
-```text
-Revoke Sessions
-    ↓
-Remove Access
-    ↓
-Disable Account
-    ↓
-Generate Logs & Metrics
+```mermaid
+flowchart TD
+
+    A[HR LEAVER Event]
+    B[Validate Employee Data]
+    C[GET /users]
+    D[POST revokeSignInSessions]
+    E[GET User Group Membership]
+    F[Remove-MgGroupMemberByRef]
+    G[PATCH /users accountEnabled false]
+    H[Generate Logs & Metrics]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
 ```
 
 ---
