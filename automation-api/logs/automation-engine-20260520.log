@@ -1,0 +1,42 @@
+2026-05-20 16:17:49 [INFO] [Employee:N/A] [Operation:N/A] Connecting to Microsoft Graph using application authentication
+2026-05-20 16:17:51 [INFO] [Employee:N/A] [Operation:N/A] Successfully connected to tenant: e5835762-a798-4d80-9355-5d5e64e49034
+2026-05-20 16:17:51 [INFO] [Employee:EMP1001] [Operation:bb0d5338-adf8-4485-9d15-1758d1e965b5] Processing identity lifecycle event: JOINER
+2026-05-20 16:17:51 [INFO] [Employee:EMP1001] [Operation:bb0d5338-adf8-4485-9d15-1758d1e965b5] Starting validation process for test.user1@kkingss.com
+2026-05-20 16:17:55 [INFO] [Employee:EMP1001] [Operation:bb0d5338-adf8-4485-9d15-1758d1e965b5] Validation completed successfully in 4342.62ms
+2026-05-20 16:17:55 [INFO] [Employee:EMP1001] [Operation:bb0d5338-adf8-4485-9d15-1758d1e965b5] Starting JOINER workflow
+2026-05-20 16:17:56 [INFO] [Employee:EMP1001] [Operation:bb0d5338-adf8-4485-9d15-1758d1e965b5] User successfully created
+2026-05-20 16:18:06 [INFO] [Employee:EMP1001] [Operation:bb0d5338-adf8-4485-9d15-1758d1e965b5] Assigned user to group: IAM-IT-Service Desk Technician
+2026-05-20 16:18:06 [INFO] [Employee:EMP1002] [Operation:33eaafe6-0444-4273-a4de-79d9e7a7d370] Processing identity lifecycle event: JOINER
+2026-05-20 16:18:06 [INFO] [Employee:EMP1002] [Operation:33eaafe6-0444-4273-a4de-79d9e7a7d370] Starting validation process for test.user2@kkingss.com
+2026-05-20 16:18:07 [INFO] [Employee:EMP1002] [Operation:33eaafe6-0444-4273-a4de-79d9e7a7d370] Validation completed successfully in 286.63ms
+2026-05-20 16:18:07 [INFO] [Employee:EMP1002] [Operation:33eaafe6-0444-4273-a4de-79d9e7a7d370] Starting JOINER workflow
+2026-05-20 16:18:07 [INFO] [Employee:EMP1002] [Operation:33eaafe6-0444-4273-a4de-79d9e7a7d370] User successfully created
+2026-05-20 16:18:17 [INFO] [Employee:EMP1002] [Operation:33eaafe6-0444-4273-a4de-79d9e7a7d370] Assigned user to group: IAM-Sales-Account Executive
+2026-05-20 16:18:18 [INFO] [Employee:N/A] [Operation:N/A] Generating automation execution report
+2026-05-20 16:18:18 [INFO] [Employee:N/A] [Operation:N/A] Automation report generated successfully
+2026-05-20 16:23:52 [INFO] [Employee:N/A] [Operation:N/A] Connecting to Microsoft Graph using application authentication
+2026-05-20 16:23:52 [INFO] [Employee:N/A] [Operation:N/A] Successfully connected to tenant: e5835762-a798-4d80-9355-5d5e64e49034
+2026-05-20 16:23:52 [INFO] [Employee:EMP1001] [Operation:e0792bae-98fa-459e-b23a-5ecaf582f53a] Processing identity lifecycle event: LEAVER
+2026-05-20 16:23:52 [INFO] [Employee:EMP1001] [Operation:e0792bae-98fa-459e-b23a-5ecaf582f53a] Starting validation process for test.user1@kkingss.com
+2026-05-20 16:23:52 [INFO] [Employee:EMP1001] [Operation:e0792bae-98fa-459e-b23a-5ecaf582f53a] Validation completed successfully in 549.78ms
+2026-05-20 16:23:52 [INFO] [Employee:EMP1001] [Operation:e0792bae-98fa-459e-b23a-5ecaf582f53a] Starting LEAVER workflow
+2026-05-20 16:23:53 [INFO] [Employee:EMP1001] [Operation:e0792bae-98fa-459e-b23a-5ecaf582f53a] User sessions revoked
+2026-05-20 16:23:53 [INFO] [Employee:EMP1001] [Operation:e0792bae-98fa-459e-b23a-5ecaf582f53a] Removing user from IAM-managed groups
+2026-05-20 16:23:53 [INFO] [Employee:EMP1001] [Operation:e0792bae-98fa-459e-b23a-5ecaf582f53a] Removed user from group: IAM-IT-Service Desk Technician
+2026-05-20 16:23:56 [INFO] [Employee:EMP1001] [Operation:e0792bae-98fa-459e-b23a-5ecaf582f53a] User account disabled successfully
+2026-05-20 16:23:56 [INFO] [Employee:EMP1002] [Operation:f3c374a3-b011-4be3-8ef4-f0be0b62cc76] Processing identity lifecycle event: MOVER
+2026-05-20 16:23:56 [INFO] [Employee:EMP1002] [Operation:f3c374a3-b011-4be3-8ef4-f0be0b62cc76] Starting validation process for test.user2@kkingss.com
+2026-05-20 16:23:56 [INFO] [Employee:EMP1002] [Operation:f3c374a3-b011-4be3-8ef4-f0be0b62cc76] Validation completed successfully in 333.84ms
+2026-05-20 16:23:56 [INFO] [Employee:EMP1002] [Operation:f3c374a3-b011-4be3-8ef4-f0be0b62cc76] Starting MOVER workflow
+2026-05-20 16:23:57 [INFO] [Employee:EMP1002] [Operation:f3c374a3-b011-4be3-8ef4-f0be0b62cc76] User attributes updated successfully
+2026-05-20 16:23:57 [INFO] [Employee:EMP1002] [Operation:f3c374a3-b011-4be3-8ef4-f0be0b62cc76] Updating user group membership
+2026-05-20 16:23:58 [INFO] [Employee:EMP1002] [Operation:f3c374a3-b011-4be3-8ef4-f0be0b62cc76] Removed user from group: IAM-Sales-Account Executive
+2026-05-20 16:24:01 [INFO] [Employee:EMP1002] [Operation:f3c374a3-b011-4be3-8ef4-f0be0b62cc76] Assigned user to group: IAM-IT-Service Desk Technician
+2026-05-20 16:24:01 [INFO] [Employee:EMP1003] [Operation:68776c05-2627-4b35-a966-00ed07252e23] Processing identity lifecycle event: JOINER
+2026-05-20 16:24:01 [INFO] [Employee:EMP1003] [Operation:68776c05-2627-4b35-a966-00ed07252e23] Starting validation process for test.user3@kkingss.com
+2026-05-20 16:24:01 [INFO] [Employee:EMP1003] [Operation:68776c05-2627-4b35-a966-00ed07252e23] Validation completed successfully in 275.79ms
+2026-05-20 16:24:01 [INFO] [Employee:EMP1003] [Operation:68776c05-2627-4b35-a966-00ed07252e23] Starting JOINER workflow
+2026-05-20 16:24:02 [INFO] [Employee:EMP1003] [Operation:68776c05-2627-4b35-a966-00ed07252e23] User successfully created
+2026-05-20 16:24:13 [INFO] [Employee:EMP1003] [Operation:68776c05-2627-4b35-a966-00ed07252e23] Assigned user to group: IAM-Software Development-Software Developer
+2026-05-20 16:24:13 [INFO] [Employee:N/A] [Operation:N/A] Generating automation execution report
+2026-05-20 16:24:13 [INFO] [Employee:N/A] [Operation:N/A] Automation report generated successfully
