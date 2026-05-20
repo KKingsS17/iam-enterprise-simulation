@@ -27,7 +27,7 @@ The automation engine processes lifecycle events and orchestrates provisioning w
 
 The module follows a layered automation architecture.
 
-<img src="docs/evidence/high-level-architecture.drawio.svg" width="500">
+<img src="docs/evidence/high-level-architecture.drawio.svg" width="400">
 
 ---
 
