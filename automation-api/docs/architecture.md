@@ -69,10 +69,27 @@ This enables secure non-interactive automation without relying on delegated user
 
 The platform uses a hybrid Microsoft Graph integration strategy:
 
-| Integration Method | Purpose |
-|---|---|
-| REST API | Lifecycle orchestration and provisioning |
-| SDK Cmdlets | Group membership and directory operations |
+```mermaid
+flowchart LR
+
+    subgraph REST-Based Operations
+        A[REST API]
+        B[User Provisioning]
+        C[Attribute Updates]
+        D[Session Revocation]
+    end
+
+    subgraph SDK-Based Operations
+        E[SDK Cmdlets]
+        F[Group Membership Management]
+    end
+
+    A --> B
+    A --> C
+    A --> D
+
+    E --> F
+```
 
 This design improves operational reliability while maintaining API-driven orchestration workflows.
 
