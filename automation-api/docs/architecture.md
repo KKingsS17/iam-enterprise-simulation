@@ -6,6 +6,38 @@ This document defines the architecture of the IAM automation platform used to or
 
 The platform simulates how enterprise IAM systems process identity events originating from authoritative HR systems and automate provisioning workflows within Microsoft Entra ID.
 
+```mermaid
+flowchart TD
+
+    A[employees.json]
+
+    subgraph Automation Platform
+        B[Validation Layer]
+        C[Automation Engine]
+        D[Microsoft Graph API Layer]
+    end
+
+    E[Microsoft Entra ID]
+
+    subgraph Identity Resources
+        F[Groups]
+        G[Users]
+    end
+
+    H[Logging & Reporting]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+
+    E --> F
+    E --> G
+
+    F --> H
+    G --> H
+```
+
 ---
 
 ## Architecture Components
@@ -18,28 +50,6 @@ The platform simulates how enterprise IAM systems process identity events origin
 | Microsoft Entra ID | Identity control plane |
 | Governance Layer | Validates policy and access rules |
 | Logging & Reporting Layer | Provides audit and operational visibility |
-
----
-
-## High-Level Flow
-
-```text
-HR System
-    ↓
-Lifecycle Event
-    ↓
-Automation Engine
-    ↓
-Validation Layer
-    ↓
-Microsoft Graph API
-    ↓
-Microsoft Entra ID
-    ↓
-Access Provisioning
-    ↓
-Logging & Reporting
-```
 
 ---
 
