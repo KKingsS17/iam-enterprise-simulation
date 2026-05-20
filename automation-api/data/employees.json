@@ -1,1 +1,44 @@
-
+[
+  {
+    "employeeId": "EMP1001",
+    "firstName": "Test",
+    "lastName": "User1",
+    "displayName": "Test User1",
+    "userPrincipalName": "test.user1@kkingss.com",
+    "department": "IT",
+    "jobTitle": "Service Desk Technician",
+    "country": "US",
+    "employeeType": "Employee",
+    "manager": "kendall.reyes@kkingss.com",
+    "eventType": "LEAVER",
+    "status": "terminated"
+  },
+    {
+    "employeeId": "EMP1002",
+    "firstName": "Test",
+    "lastName": "User2",
+    "displayName": "Test User2",
+    "userPrincipalName": "test.user2@kkingss.com",
+    "department": "IT",
+    "jobTitle": "Service Desk Technician",
+    "country": "US",
+    "employeeType": "Employee",
+    "manager": "kendall.reyes@kkingss.com",
+    "eventType": "MOVER",
+    "status": "active"
+  },
+  {
+    "employeeId": "EMP1003",
+    "firstName": "Test",
+    "lastName": "User3",
+    "displayName": "Test User3",
+    "userPrincipalName": "test.user3@kkingss.com",
+    "department": "Software Development",
+    "jobTitle": "Software Developer",
+    "country": "US",
+    "employeeType": "Employee",
+    "manager": "kendall.reyes@kkingss.com",
+    "eventType": "JOINER",
+    "status": "active"
+  }
+]
