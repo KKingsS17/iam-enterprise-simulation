@@ -97,6 +97,8 @@ This ensures governance enforcement before provisioning operations are executed.
 
 ## Logging & Reporting
 
+<img src="docs/evidence/automation-logs.png" width="900">
+
 The platform generates:
 
 - Structured operational logs
