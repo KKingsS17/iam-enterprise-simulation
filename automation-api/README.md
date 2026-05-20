@@ -27,7 +27,9 @@ The automation engine processes lifecycle events and orchestrates provisioning w
 
 The module follows a layered automation architecture.
 
-<img src="docs/evidence/high-level-architecture.drawio.svg" width="400">
+<p align="center">
+  <img src="docs/evidence/high-level-architecture.drawio.svg" width="450">
+</p>
 
 ---
 
@@ -97,7 +99,7 @@ This ensures governance enforcement before provisioning operations are executed.
 
 ## Logging & Reporting
 
-<img src="docs/evidence/automation-logs.png" width="900">
+<img src="docs/evidence/automation-logs.png" width="1000">
 
 The platform generates:
 
@@ -109,13 +111,32 @@ The platform generates:
 
 ---
 
-## Documentation
+## Technical Documentation
 
 | Document | Description |
 |---|---|
-| [Architecture](docs/architecture.md) | High-level automation architecture and integration model |
-| [API Flow](docs/api-flow.md) | Microsoft Graph API operations and integration flows |
-| [Automation Design](docs/automation-design.md) | Event-driven lifecycle orchestration and workflow design |
+| [Architecture](docs/architecture.md) | High-level automation architecture, integration model, and platform components |
+| [API Flow](docs/api-flow.md) | Microsoft Graph API operations, lifecycle orchestration flows, and SDK integrations |
+| [Automation Design](docs/automation-design.md) | Event-driven processing model, governance validation, and workflow design |
+
+### Supporting Artifacts
+
+- [High-Level Architecture Diagram](docs/evidence/high-level-architecture.drawio.svg)
+- [Automation Logging Evidence](docs/evidence/automation-logs.png)
+
+---
+
+## Project Structure
+
+```text
+automation-api/
+│
+├── config/
+├── data/
+├── scripts/
+├── logs/
+└── docs/
+```
 
 ---
 
