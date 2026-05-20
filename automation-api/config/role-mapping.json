@@ -1,0 +1,100 @@
+{
+  "IT-Service Desk Technician": {
+    "groups": [
+      "IAM-IT-Service Desk Technician"
+    ],
+    "riskLevel": "Medium",
+
+    "privileged": true
+  },
+
+  "IT-System Administrator": {
+    "groups": [
+      "IAM-IT-System Administrator"
+    ],
+    "riskLevel": "High",
+
+    "privileged": true
+  },
+
+  "IT-IAM Engineer": {
+    "groups": [
+      "IAM-IT-IAM Engineer"
+    ],
+    "riskLevel": "High",
+
+    "privileged": true
+  },
+
+  "IT-Cybersecurity Analyst": {
+    "groups": [
+      "IAM-IT-Cybersecurity Analyst"
+    ],
+    "riskLevel": "Medium",
+
+    "privileged": true
+  },
+
+  "Finance-Accounting Manager": {
+    "groups": [
+      "IAM-Finance-Accounting Manager"
+    ],
+    "riskLevel": "Medium",
+
+    "privileged": false
+  },
+
+  "Software Development-Product Manager": {
+    "groups": [
+      "IAM-Software Development-Product Manager"
+    ],
+    "riskLevel": "Medium",
+
+    "privileged": true
+  },
+
+  "Software Development-Software Architect": {
+    "groups": [
+      "IAM-Software Development-Software Architect"
+    ],
+    "riskLevel": "Medium",
+
+    "privileged": true
+  },
+
+  "Software Development-Software Developer": {
+    "groups": [
+      "IAM-Software Development-Software Developer"
+    ],
+    "riskLevel": "Medium",
+
+    "privileged": true
+  },
+
+  "Human Resources-HR Management": {
+    "groups": [
+      "IAM-Human Resources-HR Management"
+    ],
+    "riskLevel": "Low",
+
+    "privileged": false
+  },
+
+  "Sales-Account Executive": {
+    "groups": [
+      "IAM-Sales-Account Executive"
+    ],
+    "riskLevel": "Low",
+
+    "privileged": false
+  },
+
+  "Finance-Accounting Staff": {
+    "groups": [
+      "IAM-Finance-Accounting Staff"
+    ],
+    "riskLevel": "Low",
+
+    "privileged": false
+  }
+}
