@@ -46,69 +46,60 @@ The following operations are executed through Microsoft Graph PowerShell SDK cmd
 
 ### JOINER
 
-```mermaid
-flowchart TD
-
-    A[HR JOINER Event]
-    B[Validate Employee Data]
-    C[POST /users]
-    D[GET /groups]
-    E[New-MgGroupMemberByRef]
-    F[Provision Access]
-    G[Generate Logs & Metrics]
-
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
+```text
+HR JOINER Event
+    ↓
+Validate Employee Data
+    ↓
+POST /users
+    ↓
+GET /groups
+    ↓
+New-MgGroupMemberByRef
+    ↓
+Provision Access
+    ↓
+Generate Logs & Metrics
 ```
 
 ### MOVER
 
-```mermaid
-flowchart TD
-
-    A[HR MOVER Event]
-    B[Validate Employee Data]
-    C[PATCH /users]
-    D[GET User Group Membership]
-    E[Remove-MgGroupMemberByRef]
-    F[GET Target Groups]
-    G[New-MgGroupMemberByRef]
-    H[Generate Logs & Metrics]
-
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    G --> H
+```text
+HR MOVER Event
+    ↓
+Validate Employee Data
+    ↓
+PATCH /users
+    ↓
+GET User Group Membership
+    ↓
+Remove-MgGroupMemberByRef
+    ↓
+GET Target Groups
+    ↓
+New-MgGroupMemberByRef
+    ↓
+Generate Logs & Metrics
 ```
 
 ### LEAVER
 
-```mermaid
-flowchart TD
-
-    A[HR LEAVER Event]
-    B[Validate Employee Data]
-    C[GET /users]
-    D[POST revokeSignInSessions]
-    E[GET User Group Membership]
-    F[Remove-MgGroupMemberByRef]
-    G[PATCH /users accountEnabled false]
-    H[Generate Logs & Metrics]
-
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    G --> H
+```text
+HR LEAVER Event
+    ↓
+Validate Employee Data
+    ↓
+GET /users
+    ↓
+POST revokeSignInSessions
+    ↓
+GET User Group Membership
+    ↓
+Remove-MgGroupMemberByRef
+    ↓
+PATCH /users accountEnabled false
+    ↓
+Generate Logs & Metrics
 ```
 
 ---
