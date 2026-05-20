@@ -4,47 +4,46 @@
 
 This project simulates a modern enterprise Identity and Access Management (IAM) environment built using Microsoft Entra ID, Microsoft Graph API, PowerShell, and Zero Trust security principles.
 
-The implementation demonstrates how organizations automate identity lifecycle management, govern access, enforce security controls, and maintain audit-ready visibility across enterprise environments.
-
-The project focuses on:
+The implementation focuses on:
 
 - Identity lifecycle automation
 - RBAC and ABAC access control
-- Dynamic access provisioning
-- Conditional Access and Zero Trust
 - IAM governance and audit readiness
-- Microsoft Graph API automation
-
-<img src="access-governance/reports/dashboard.png" width="950">
+- Conditional Access and Zero Trust
+- Microsoft Graph API orchestration
 
 ---
 
-## Enterprise IAM Architecture
+## Enterprise Architecture
 
-The environment models a centralized identity architecture where Microsoft Entra ID acts as the control plane for authentication, authorization, governance, and policy enforcement.
+The environment models a centralized identity architecture where Microsoft Entra ID acts as the primary identity control plane.
 
-| Layer | Components |
+```mermaid
+flowchart TD
+
+    A[Microsoft Entra ID]
+
+    A --> B[Automation Layer<br/>PowerShell + Graph API]
+
+    A --> C[Access Control Layer<br/>RBAC + Dynamic Groups]
+
+    A --> D[Governance Layer<br/>Access Reviews + Audit Reporting]
+
+    A --> E[Security Layer<br/>Conditional Access + Zero Trust]
+```
+
+---
+
+## Implemented Capabilities
+
+| Area | Implementation |
 |---|---|
-| Identity | Microsoft Entra ID |
-| Automation | PowerShell + Microsoft Graph API |
-| Access Control | RBAC + Dynamic Groups |
-| Governance | Access Reviews + Audit Reporting |
-| Security | Conditional Access + Zero Trust |
-
----
-
-## Core IAM Capabilities
-
-- Identity Lifecycle Automation (JML)
-- RBAC and ABAC Access Models
-- Dynamic Group Management
-- Conditional Access Enforcement
-- Access Reviews and Governance
-- Risk-Based Access Classification
-- Privileged Access Protection
-- IAM Audit Reporting
-- PowerShell Automation
-- Microsoft Graph API Integration
+| Lifecycle Management | Automated Joiner / Mover / Leaver workflows |
+| Authorization Model | RBAC, ABAC, and Dynamic Groups |
+| Access Protection | Conditional Access and Zero Trust controls |
+| Governance | Access Reviews and audit reporting |
+| Automation | Microsoft Graph API orchestration |
+| Authentication | Certificate-based app authentication |
 
 ---
 
@@ -54,54 +53,7 @@ The environment models a centralized identity architecture where Microsoft Entra
 
 🔗 **[Module Details](lifecycle-automation/README.md)**
 
-Implements enterprise Joiner, Mover, and Leaver (JML) automation workflows using PowerShell and Microsoft Graph API.
-
-```mermaid
-flowchart LR
-
-subgraph Data_Layer
-    A[HR System - CSV]
-end
-
-subgraph Processing_Layer
-    B[Validation]
-    C{User Exists?}
-    D[JOINER]
-    E{Changes?}
-    F[MOVER]
-    G[LEAVER]
-end
-
-subgraph Identity_Layer
-    H[Entra ID]
-    I[Groups]
-end
-
-subgraph Output_Layer
-    J[Logs]
-    K[Report]
-end
-
-A --> B
-B --> C
-
-C -->|No| D
-C -->|Yes| E
-
-E -->|No| J
-E -->|Yes| F
-
-C -->|Terminated| G
-
-D --> I
-F --> I
-G --> I
-
-I --> H
-H --> J
-H --> K
-```
-
+Implements automated Joiner, Mover, and Leaver (JML) workflows using PowerShell and Microsoft Graph API.
 
 #### Highlights
 
@@ -123,7 +75,9 @@ H --> K
 
 🔗 **[Module Details](access-governance/README.md)**
 
-Implements governance and audit processes aligned with enterprise IAM practices.
+Implements IAM governance, access reviews, and audit reporting workflows.
+
+<img src="access-governance/reports/dashboard.png" width="850">
 
 #### Highlights
 
@@ -147,7 +101,7 @@ Implements governance and audit processes aligned with enterprise IAM practices.
 
 🔗 **[Module Details](access-control-models/README.md)**
 
-Implements a layered RBAC and ABAC access control architecture with dynamic identity-driven access assignment and Conditional Access enforcement.
+Implements layered RBAC and ABAC access control with Dynamic Groups and Conditional Access enforcement.
 
 #### Highlights
 
@@ -171,14 +125,30 @@ Implements a layered RBAC and ABAC access control architecture with dynamic iden
 
 🔗 **[Module Details](automation-api/README.md)**
 
-Extends IAM automation capabilities through direct Microsoft Graph API integration.
+Implements an IAM automation and orchestration layer using Microsoft Graph API, PowerShell, and Microsoft Entra ID.
 
-#### Planned Features
+<p align="center">
+  <img src="automation-api/docs/evidence/high-level-architecture.drawio.svg" width="420">
+</p>
 
-- API-driven provisioning
-- Identity automation workflows
-- Programmatic access management
-- REST API integrations
+#### Highlights
+
+- Event-driven identity lifecycle processing
+- Automated Joiner / Mover / Leaver workflows
+- REST API and SDK hybrid integration model
+- App-only authentication using certificates
+- Governance validation pipeline
+- Structured operational logging and reporting
+- Microsoft Graph API orchestration
+
+#### Technologies
+
+- Microsoft Entra ID
+- Microsoft Graph API
+- Microsoft Graph PowerShell SDK
+- PowerShell
+- JSON
+- Power Bi
 
 ---
 
@@ -221,14 +191,10 @@ Implements Zero Trust security principles focused on identity-centric security c
 
 ## Project Goal
 
-The goal of this project is to demonstrate practical enterprise IAM engineering skills through the implementation of a structured, automated, and governance-aligned identity environment.
-
-The architecture, automation workflows, governance processes, and security controls are designed to reflect real-world enterprise IAM and Zero Trust practices.
+The goal of this project is to demonstrate practical enterprise IAM engineering skills through automation, governance, access control, and Zero Trust security implementations aligned with real-world identity operations.
 
 ---
 
 ## Notes
 
-This project was created for learning, portfolio, and professional development purposes.
-
-All implementations, workflows, governance controls, and security models are intentionally designed to simulate enterprise IAM operations commonly used in modern organizations.
+This project was created for learning, portfolio, and professional development purposes while following modern enterprise IAM and Zero Trust practices.
