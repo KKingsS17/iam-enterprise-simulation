@@ -68,12 +68,21 @@ The LEAVER workflow performs:
 
 Before lifecycle execution, the platform validates:
 
-- Required attributes
-- Email format
-- Lifecycle status
-- Role mappings
-- Group existence
-- Duplicate identities
+```text
+Employee Lifecycle Event
+          ↓
+Validation Pipeline
+          ↓
+Required Attribute Validation
+Email Format Validation
+Role Mapping Validation
+Group Existence Validation
+Duplicate Identity Validation
+          ↓
+Governance Decision
+          ↓
+Provisioning Allowed / Blocked
+```
 
 Provisioning operations are blocked if governance validation fails.
 
