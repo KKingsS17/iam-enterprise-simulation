@@ -214,7 +214,7 @@ Implements Zero Trust security principles focused on identity-centric security c
 | Lifecycle Automation | ✅ Completed |
 | Access Governance | ✅ Completed |
 | Access Control Models | ✅ Completed |
-| Automation API | 🚧 In Progress |
+| Automation API | ✅ Completed |
 | Security – Zero Trust | 🚧 In Progress |
 
 ---
