@@ -167,7 +167,9 @@ Implements a layered RBAC and ABAC access control architecture with dynamic iden
 
 ---
 
-### Automation API — Module 4 *(In Progress)*
+### Automation API — Module 4
+
+🔗 **[Module Details](automation-api/README.md)**
 
 Extends IAM automation capabilities through direct Microsoft Graph API integration.
 
